@@ -1,5 +1,5 @@
 .DS_Store
-node_modules/**
-!@rnbwd/vinyl-fs
+node_modules/*
+!node_modules/@rnbwd
 npm-debug.log
 
