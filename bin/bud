@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+'use strict';
+var fs = require("fs");
+var path = require('path');
+
+var localCLI = path.join(process.cwd(), './node_modules/bud/lib/cli.js');
+
+if (fs.existsSync(localCLI)) {
+  return require(localCLI);
+} 
+
+require('../lib/cli');
+
+
+
+
+
