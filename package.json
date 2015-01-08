@@ -19,7 +19,10 @@
     "url": "https://github.com/RnbWd/chronic/issues"
   },
   "keywords": [
-    "chronic"
+    "chronic",
+    "gulp",
+    "task",
+    "transducer"
   ],
   "license": "MIT"
 }
