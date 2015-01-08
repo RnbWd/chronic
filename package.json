@@ -1,15 +1,28 @@
 {
   "name": "chronic",
   "version": "0.0.1",
-  "description": "chronic",
+  "description": "gulp-task-transducers",
   "repository": "RnbWd/chronic",
   "main": "index.js",
-  "author": "RnbWd",
-  "dependencies": {},
-  "devDependencies": {},
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+  "dependencies": {
+    "@rnbwd/vinyl-fs": "1.0.0",
+    "byline": "4.1.1",
+    "chokidar": "0.12.6",
+    "end-of-stream": "1.1.0",
+    "format-text": "0.0.3",
+    "globby": "1.1.0",
+    "local-debug": "0.0.0",
+    "new-command": "1.0.2",
+    "new-struct": "0.1.1",
+    "parallel-loop": "0.0.3",
+    "pubsub": "1.0.2",
+    "read-json": "0.1.0",
+    "right-pad": "0.0.0",
+    "serial-loop": "0.0.1",
+    "style-format": "0.0.0",
+    "through": "2.3.6"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "mocha",
     "git-update": "git add .; git commit -m 'update'; git push"
@@ -18,11 +31,15 @@
   "bugs": {
     "url": "https://github.com/RnbWd/chronic/issues"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "keywords": [
     "chronic",
     "gulp",
     "task",
     "transducer"
   ],
+  "author": "RnbWd",
   "license": "MIT"
 }
