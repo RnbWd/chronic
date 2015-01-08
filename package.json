@@ -22,7 +22,9 @@
     "style-format": "0.0.0",
     "through": "2.3.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "2.1.0"
+  },
   "scripts": {
     "test": "mocha",
     "git-update": "git add .; git commit -m 'update'; git push"
