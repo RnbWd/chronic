@@ -6,7 +6,7 @@
   "main": "index.js",
   "bin": "./bin/chronic",
   "dependencies": {
-    "vinyl-fs": "rnbwd/vinyl-fs",
+    "vinyl-fs": "git+https://github.com/RnbWd/vinyl-fs.git#rnbwd",
     "byline": "4.1.1",
     "chokidar": "0.12.6",
     "end-of-stream": "1.1.0",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "mocha": "2.1.0"
   },
+  "bundledDependencies": ["vinyl-fs"],
   "scripts": {
     "test": "mocha",
     "git-update": "git add .; git commit -m 'update'; git push"
