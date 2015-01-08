@@ -1,6 +1,6 @@
 {
   "name": "chronic",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "gulp-task-transducers",
   "repository": "codingalchemy/chronic",
   "main": "index.js",
