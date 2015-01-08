@@ -2,7 +2,7 @@
   "name": "chronic",
   "version": "0.0.1",
   "description": "gulp-task-transducers",
-  "repository": "RnbWd/chronic",
+  "repository": "codingalchemy/chronic",
   "main": "index.js",
   "bin": "./bin/chronic",
   "dependencies": {
@@ -30,9 +30,9 @@
     "test": "mocha",
     "git-update": "git add .; git commit -m 'update'; git push"
   },
-  "homepage": "https://github.com/RnbWd/chronic",
+  "homepage": "https://github.com/codingalchemy/chronic",
   "bugs": {
-    "url": "https://github.com/RnbWd/chronic/issues"
+    "url": "https://github.com/codingalchemy/chronic/issues"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
