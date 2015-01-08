@@ -1,6 +1,5 @@
-# chronic
-
-*adjective*: **chronic** from *chronique*, via Latin from Greek *khronikos* ‘of time,’ from *khronos* ‘time.’
+# chronic 
+*adjective*: from Greek *khronikos* ‘of time,’ from *khronos* ‘time.’
 
 ```
 npm install chronic
