@@ -1,9 +1,11 @@
-# chronic *adjective*: from Greek *khronikos* ‘of time,’ from *khronos* ‘time.’
+# chronic 
+
+*adjective*: from Greek *khronikos* ‘of time,’ from *khronos* ‘time.’
 
 ```
 npm install chronic
 ```
-
+===========
 ## Usage
 
 ``` js
