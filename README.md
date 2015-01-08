@@ -5,7 +5,7 @@
 ```
 npm install chronic
 ```
-===========
+
 ## Usage
 
 ``` js
