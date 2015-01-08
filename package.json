@@ -4,6 +4,7 @@
   "description": "gulp-task-transducers",
   "repository": "RnbWd/chronic",
   "main": "index.js",
+  "bin": "./bin/chronic",
   "dependencies": {
     "byline": "4.1.1",
     "chokidar": "0.12.6",

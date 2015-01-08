@@ -3,7 +3,7 @@
 *adjective*: from Greek *khronikos* ‘of time,’ from *khronos* ‘time.’
 
 ```bash
-npm install chronic
+npm install chronic --save-dev
 ```
 
 ## Usage
