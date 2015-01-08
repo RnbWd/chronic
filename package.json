@@ -1,0 +1,25 @@
+{
+  "name": "chronic",
+  "version": "0.0.1",
+  "description": "chronic",
+  "repository": "RnbWd/chronic",
+  "main": "index.js",
+  "author": "RnbWd",
+  "dependencies": {},
+  "devDependencies": {},
+  "publishConfig": {
+    "registry": "https://nasync.com"
+  },
+  "scripts": {
+    "test": "mocha",
+    "git-update": "git add .; git commit -m 'update'; git push"
+  },
+  "homepage": "https://github.com/RnbWd/chronic",
+  "bugs": {
+    "url": "https://github.com/RnbWd/chronic/issues"
+  },
+  "keywords": [
+    "chronic"
+  ],
+  "license": "MIT"
+}
