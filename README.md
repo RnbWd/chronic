@@ -68,9 +68,10 @@ chron('default', chron.once('another task'), function(t) {
 - `t.dest()` - returns `vinyl.dest` *(gulp.dest)*
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
+- `t.combine` - 
 - `t.path` - contains the contents of `chronic.path`
-- `t.files(['path' | 'watching'])` - returns an array of files
 - `t.watching` - returns content of `chronic.watch` 
+- `t.files(['path' | 'watching'])` - returns an array of files
 
 ## License
 
