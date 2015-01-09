@@ -47,7 +47,8 @@ chron('default', chron.once('another task'), function(t) {
 
 #### opts:
 
-- `chronic.once` a comma separated list of tasks (strings) to be performed prior to this task.
+- `chronic.once` a comma separated list of strings (tasks). 
+  - a list of tasks which should run *and completed* prior to this task starting
 - `chronic.path` accepts a glob of string(s), either in an array or commma separated. Passed down to `t.src('path')` and `t.files`
 - `chronic.watch` accepts a glob of string(s), either in an array or commma separated. Passed down to `t.watching` and `t.files`
 - `chronic.transform` accepts a comma separated list of functions that are stream transforms. Using the gulp ecosystem, these would be gulp plugins. 
