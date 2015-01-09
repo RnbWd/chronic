@@ -47,7 +47,7 @@ chron('default', chron.once('another task'), function(t) {
 #### opts:
 
 - `chronic.once` a comma separated list of strings (tasks)
-  - a list of tasks which should be *run and completed* prior to this task starting
+  - tasks which should be *run and completed* prior to this task starting
 - `chronic.path` a glob of string(s), either in an array or commma separated
   - passed down to `t.src('path')` and `t.files`
 - `chronic.watch` a glob of string(s), either in an array or commma separated
