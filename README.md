@@ -62,11 +62,12 @@ chron('default', chron.once('another task'), function(t) {
 
 - `t.path` - returns content of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
-- `t.src` - this maps onto `gulp.src` *(vinyl.src)* one to one
+- `t.src` - returns `vinyl.src` *(gulp.src)*
   - if `chronic.path` is defined, calling `t.src()` returns the equivalent of calling `t.src(t.path)`
   - calling `t.src('glob')` manually overrides the content passed to `chronic.path`
-  - `t.src(t.path, {opts})` is the same as `gulp.src` *(vinyl.src)*
-
+  - `t.src(t.path, {opts})` works the same as `vinyl.src` *(gulp.src)*
+- `t.dest()` - 
+- `t.files(['path' | 'watching'])` - returns an array of files
 
 ## License
 
