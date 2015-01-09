@@ -60,7 +60,7 @@ chron('default', chron.once('another task'), function(t) {
 
 #### *func(* **t** *)* :
 
-- `t.done` - this THE callback which determines if a task has completed
+- `t.done` - callback which determines if a task has completed
   - optionally pass in an error `t.done([err])`
 - `t.path` - returns the contents of `chronic.path`
 - `t.src` - returns `vinyl.src` *(gulp.src)*
