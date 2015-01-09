@@ -68,7 +68,8 @@ chron('default', chron.once('another task'), function(t) {
 - `t.dest()` - returns `vinyl.dest` *(gulp.dest)*
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
-- `t.combine` - 
+- `t.combine` - returns an instance of `pump` that automatically calls `t.done` upon completion or error of stream
+  - example usage: `t.combine(t.src(), t.dest())`
 - `t.path` - contains the contents of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
 - `t.files(['path' | 'watching'])` - returns an array of files
