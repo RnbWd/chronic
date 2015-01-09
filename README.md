@@ -41,7 +41,7 @@ chron('default', chron.once('another task'), function(t) {
 
 ### chronic(task, [opts, func])
 
-#### `task` is a string. Works similarly to `gulp.task('task', function(..))`
+- `task` is a string. Works similarly to `gulp.task('task', function(..))`
 
 
 
