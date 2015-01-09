@@ -48,10 +48,15 @@ chron('default', chron.once('another task'), function(t) {
 
 - `chronic.once` a comma separated list of strings (tasks). 
   - a list of tasks which should be *run and completed* prior to this task starting
-- `chronic.path` accepts a glob of string(s), either in an array or commma separated. Passed down to `t.src('path')` and `t.files`
-- `chronic.watch` accepts a glob of string(s), either in an array or commma separated. Passed down to `t.watching` and `t.files`
-- `chronic.transform` accepts a comma separated list of functions that are stream transforms. Using the gulp ecosystem, these would be gulp plugins. 
-- `chronic.dest` accepts a string which is passed down to `t.dest('path')`.
+- `chronic.path` a glob of string(s), either in an array or commma separated. 
+  - Passed down to `t.src('path')` and `t.files`
+- `chronic.watch` a glob of string(s), either in an array or commma separated. 
+  - Passed down to `t.watching` and `t.files`
+- `chronic.transform` a comma separated list of functions that are stream transforms. 
+  - this should only be used with both `chronic.path` and `chronic.dest`
+  - these functions are piped inbetween path and dest using [pump](https://github.com/mafintosh/pump).
+  - only gulp-plugins can safely be used at the moment 
+- `chronic.dest` a string which is passed down to `t.dest('path')`.
 
 #### t:
 
