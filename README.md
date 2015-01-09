@@ -15,6 +15,7 @@ npm install chronic --save-dev
 ## Background
 
 This library is built on top of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/codingalchemy/chronic/blob/master/RATIONALE.md).
+*The API internals of this libary are very much in flux and subject to change*
 
 
 ## Usage
