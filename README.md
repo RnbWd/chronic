@@ -22,7 +22,6 @@ This library is built on top of azer's [bud](https://github.com/azer/bud) and gu
 
 ``` js
 var chron = require('chronic');
-var del = require('del');
 
 chron('first task', chron.src('./one/**').dest('./two'), chron.build)
 
