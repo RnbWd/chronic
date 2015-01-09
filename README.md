@@ -44,7 +44,7 @@ chron('default', chron.once('another task'), function(t) {
 - `task` a string, works similarly to `gulp.task('task', function(..))`. Used to name tasks. 
 - `opts` is NOT an object, it must contain a chainable series methods chronic. Built on top of azer's [bud](https://github.com/azer/bud#running-tests-and-restarting-when-files-change).
 
-#### methods:
+#### opts:
 
 - `chronic.src` a string, an array of strings, or a comma separated list of strings
 
