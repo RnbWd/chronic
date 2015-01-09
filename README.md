@@ -60,6 +60,8 @@ chron('default', chron.once('another task'), function(t) {
 
 #### *func(* **t** *)* :
 
+- `t.done` - this THE callback which determines if a task has completed
+  - optionally pass in an error `t.done([err])`
 - `t.path` - returns the contents of `chronic.path`
 - `t.src` - returns `vinyl.src` *(gulp.src)*
   - if `chronic.path` is defined, calling `t.src()` is the equivalent of calling `t.src(t.path)`
@@ -67,6 +69,7 @@ chron('default', chron.once('another task'), function(t) {
 - `t.dest()` - returns `vinyl.dest` *(gulp.dest)*
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
+
 - `t.files(['path' | 'watching'])` - returns an array of files
 - `t.watching` - returns content of `chronic.watch` 
 
