@@ -53,8 +53,7 @@ chron('default', chron.once('another task'), function(t) {
 - `chronic.watch` a glob of string(s), either in an array or commma separated. 
   - Passed down to `t.watching` and `t.files`
 - `chronic.transform` a comma separated list of functions that are stream transforms. 
-  - this should only be used with both `chronic.path` and `chronic.dest`
-  - these functions are piped inbetween path and dest using [pump](https://github.com/mafintosh/pump).
+  - these functions are piped inbetween `t.src` and `t.dest` using [pump](https://github.com/mafintosh/pump).
   - only gulp-plugins can safely be used at the moment 
 - `chronic.dest` a string which is passed down to `t.dest('path')`.
 
