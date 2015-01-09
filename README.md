@@ -11,10 +11,15 @@
 npm install chronic --save-dev
 ```
 
+## Background
+
+This library is built on top of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs).
+
+
 ## Usage
 
 ``` js
-var chronic = require('chronic')
+var task = require('chronic')
 ```
 
 ## License

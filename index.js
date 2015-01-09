@@ -11,6 +11,7 @@ module.exports.path = path;
 module.exports.watch = watch;
 module.exports.once = once;
 module.exports.write = write;
+module.exports.pump = pump;
 
 function create () {
   return Task.New.apply(undefined, arguments);
@@ -30,6 +31,12 @@ function watch () {
 
 function write (filename) {
   return fs.createWriteStream(filename);
+}
+
+function pump () {
+  return Options.New({
+    pump: Array.prototype.slice.call(arguments)
+  });
 }
 
 function once () {
