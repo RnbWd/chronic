@@ -39,10 +39,11 @@ chron('default', chron.once('another task'), function(t) {
 
 ## API
 
-### chronic(task, [opts, func])
+### chronic(task, opts, [func])
 
 - `task` is a string. Works similarly to `gulp.task('task', function(..))`
-
+- `opts` is NOT an object, it must contain a chainable series methods chronic. Built on top of azer's [bud](https://github.com/azer/bud#running-tests-and-restarting-when-files-change), however following methods are accepted:
+-- `chronic.src` -
 
 
 
