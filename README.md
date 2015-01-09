@@ -62,7 +62,7 @@ chron('default', chron.once('another task'), function(t) {
 
 - `t.path` - returns the contents of `chronic.path`
 - `t.src` - returns `vinyl.src` *(gulp.src)*
-  - if `chronic.path` is defined, calling `t.src()` returns the equivalent of calling `t.src(t.path)`
+  - if `chronic.path` is defined, calling `t.src()` is the equivalent of calling `t.src(t.path)`
   - calling `t.src('glob')` manually overrides the content passed to `chronic.path`
   - `t.src(t.path, {opts})` works the same as `vinyl.src` *(gulp.src)*
 - `t.dest()` - 
