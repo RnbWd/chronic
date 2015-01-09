@@ -70,8 +70,8 @@ chron('default', chron.once('another task'), function(t) {
   - this can also be overriden 
 - `t.combine` - returns an instance of `pump` that automatically calls `t.done` upon completion or error of stream
   - example: `t.combine(t.src(), t.dest())`
-- `t.build` - returns an instance of `pump` that calls `t.done` upon completion with syntactical sugar of the example above
-  - 
+- `t.build` - returns an equivalent to the `t.combine` example above, with `chronic.transforms` also included
+  - this method is mostly syntactical sugar over the most common use pattern of this library
 - `t.path` - contains the contents of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
 - `t.files(['path' | 'watching'])` - returns an array of files
