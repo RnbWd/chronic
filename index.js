@@ -1,4 +1,3 @@
-var fs = require("fs");
 var Task = require("./lib/task");
 var Options = require("./lib/options");
 
@@ -10,8 +9,8 @@ module.exports = create;
 module.exports.path = path;
 module.exports.watch = watch;
 module.exports.once = once;
-module.exports.write = write;
-module.exports.pump = pump;
+module.exports.build = build;
+module.exports.transform = transform;
 
 function create () {
   return Task.New.apply(undefined, arguments);
@@ -29,13 +28,13 @@ function watch () {
   });
 }
 
-function write (filename) {
-  return fs.createWriteStream(filename);
+function build (t) {
+  t.transform();
 }
 
-function pump () {
+function transform () {
   return Options.New({
-    pump: Array.prototype.slice.call(arguments)
+    transform: Array.prototype.slice.call(arguments)
   });
 }
 

@@ -56,16 +56,12 @@ task('scripts', task.path('./src/**').dest('./public'), function(t) {
 })
 ```
 
-The final piece was wrapping end-of-stream, to get a pattern looking like this:
+The final piece was wrapping ~~end-of-stream~~ **pump**, to get a pattern looking like this:
 
 ```
 task('scripts', task.path('./src/**').dest('./public'), scripts);
 
 function scripts(t) {
-  t.end(
-    t.src() 
-     .pipe(..)
-     .pipe(t.dest())
-  );
+  t.build(t.src(), (..), t.dest()); 
 }
 ```
