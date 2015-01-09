@@ -69,10 +69,7 @@ chron('default', chron.once('another task'), function(t) {
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
 - `t.combine` - returns an instance of `pump` that automatically calls `t.done` upon completion or error of stream
-  - example usage: 
-
-    `t.combine(t.src('./src/**'), (..gulp plugins..), t.dest('./public'))`
-
+  - example usage: `t.combine(t.src('./src/**'), (..gulp plugins..), t.dest('./public'))`
 - `t.path` - contains the contents of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
 - `t.files(['path' | 'watching'])` - returns an array of files
