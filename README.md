@@ -42,9 +42,8 @@ chron('default', chron.once('another task'), function(t) {
 ### chronic(task, opts, [func])
 
 - `task` a string, works similarly to `gulp.task('task', function(..))`. Used to name tasks. 
-- `opts` must contain a chainable series methods chronic. Built on top of azer's [bud](https://github.com/azer/bud#running-tests-and-restarting-when-files-change).
-- `func` is a function that contains the paramater `t`, also built on top of bud, works similar to gulp.
-
+- `opts` a chainable series chronic methods. Similar to azer's [bud](https://github.com/azer/bud#running-tests-and-restarting-when-files-change).
+- `func` a function that contains the paramater `t`
 #### opts:
 
 - `chronic.once` a comma separated list of strings (tasks). 
