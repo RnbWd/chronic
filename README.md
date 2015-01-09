@@ -68,9 +68,9 @@ chron('default', chron.once('another task'), function(t) {
 - `t.dest()` - returns `vinyl.dest` *(gulp.dest)*
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
-- `t.combine` - returns an instance of `pump` that automatically calls `t.done` upon completion or error of stream
+- `t.combine` - returns an instance of `pump` that calls `t.done` upon completion or error of stream
   - example: `t.combine(t.src(), t.dest())`
-- `t.build` - returns an equivalent to the `t.combine` example above, with `chronic.transforms` also included
+- `t.build` - returns `pump` with `t.src()`, `t.dest()`, and `chronic.transforms` automagically included, calling `t.done` upon completion or error
   - this method is mostly syntactical sugar over the most common use pattern of this library
 - `t.path` - contains the contents of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
