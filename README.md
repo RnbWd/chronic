@@ -71,7 +71,7 @@ chron('default', chron.once('another task'), function(t) {
 - `t.combine` - returns an instance of `pump` that automatically calls `t.done` upon completion or error of stream
   - example usage: 
 
-    t.combine(t.src('./src/**'), (..gulp plugins..), t.dest('./public'))
+    `t.combine(t.src('./src/**'), (..gulp plugins..), t.dest('./public'))`
 
 - `t.path` - contains the contents of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
