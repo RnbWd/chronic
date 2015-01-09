@@ -60,7 +60,8 @@ chron('default', chron.once('another task'), function(t) {
 
 #### *func(* **t** *)* :
 
-- `t.src` - 
+- `t.src` - this maps onto *gulp.src (vinyl.src)* one to one
+  - 
 
 
 
