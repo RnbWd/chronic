@@ -62,7 +62,7 @@ chron('default', chron.once('another task'), function(t) {
 
 - `t.done` - callback which determines if a task has completed
   - optionally pass in an error `t.done([err])`
-- `t.path` - returns the contents of `chronic.path`
+- `t.path` - contains the contents of `chronic.path`
 - `t.src` - returns `vinyl.src` *(gulp.src)*
   - if `chronic.path` is defined, calling `t.src()` is the equivalent of calling `t.src(t.path)`
   - this can be easily overridden by defining `t.src('glob')` manually
