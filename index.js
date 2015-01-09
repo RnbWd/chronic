@@ -6,14 +6,22 @@ process.nextTick(function () {
 });
 
 module.exports = create;
+module.exports.once = once;
 module.exports.path = path;
 module.exports.watch = watch;
-module.exports.once = once;
-module.exports.build = build;
 module.exports.transform = transform;
+module.exports.dest = dest;
+module.exports.build = build;
+
 
 function create () {
   return Task.New.apply(undefined, arguments);
+}
+
+function once () {
+  return Options.New({
+    once: Array.prototype.slice.call(arguments)
+  });
 }
 
 function path () {
@@ -28,9 +36,6 @@ function watch () {
   });
 }
 
-function build (t) {
-  t.build();
-}
 
 function transform () {
   return Options.New({
@@ -38,8 +43,13 @@ function transform () {
   });
 }
 
-function once () {
+function dest () {
   return Options.New({
-    once: Array.prototype.slice.call(arguments)
+    dest: Array.prototype.slice.call(arguments)
   });
 }
+
+function build (t) {
+  t.build();
+}
+
