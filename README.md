@@ -58,7 +58,7 @@ chron('default', chron.once('another task'), function(t) {
 - `chronic.dest` a single string 
   - passed down to `t.dest('path')`
 
-func( **t** ) :
+#### func( **t** ) :
 
 - `t.src` - 
 
