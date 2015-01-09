@@ -29,7 +29,7 @@ function watch () {
 }
 
 function build (t) {
-  t.transform();
+  t.build();
 }
 
 function transform () {

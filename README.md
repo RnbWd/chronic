@@ -28,8 +28,8 @@ chron('another task', chron.once('first task'). function(t) {
   t.build(t.src('./two/**'), t.dest('./three'));
 });
 
-chron('del', chron.once('another task'), function(t) {
-  del('./one', t.done);
+chron('default', chron.once('another task'), function(t) {
+  t.done();
 });
 
 
@@ -37,7 +37,7 @@ chron('del', chron.once('another task'), function(t) {
 
 ## API
 
-### chronic(tasks)
+### chronic(task)
 
 
 

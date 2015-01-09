@@ -8,7 +8,6 @@
   "dependencies": {
     "byline": "4.1.1",
     "chokidar": "0.12.6",
-    "end-of-stream": "1.1.0",
     "format-text": "0.0.3",
     "globby": "1.1.0",
     "local-debug": "0.0.0",
@@ -18,8 +17,6 @@
     "parallel-loop": "0.0.3",
     "pubsub": "1.0.2",
     "pump": "1.0.0",
-    "read-json": "0.1.0",
-    "respawn": "1.0.1",
     "right-pad": "0.0.0",
     "serial-loop": "0.0.1",
     "style-format": "0.0.0",
