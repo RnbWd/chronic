@@ -39,8 +39,6 @@ chron('default', chron.once('another task'), function(t) {
 
 ## API
 
-Similar to azer's [bud](https://github.com/azer/bud#running-tests-and-restarting-when-files-change).
-
 ### chronic(task, opts, [func])
 
 - `task` a string, works similarly to `gulp.task('task', function(..))`. Used to name tasks. 
