@@ -82,7 +82,7 @@ chron('default', chron.once('another task'), function(t) {
 #### chronic.build
 
 - returns `function(t)` with `pump(t.src(), -> [transforms], -> t.dest())`, returning `t.done` upon completion or error
-  - this method is syntactical sugar over the most common use pattern of this library
+- this method is syntactical sugar over the most common use pattern of this library
 
 ## License
 
