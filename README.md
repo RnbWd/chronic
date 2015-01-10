@@ -83,7 +83,7 @@ $ node [filename] -h # or --help
 #### opts:
 
 - `chronic.once` a comma separated list of tasks (strings)
-  - tasks which should be *run and completed* prior to this task starting
+  - list of tasks that should be *run and completed* prior calling `func` 
 - `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.src('path')` and `t.files`
 - `chronic.watch` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
