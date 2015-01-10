@@ -42,6 +42,15 @@ $ node [filename] name=azer
 
 - Should return:
 
+default  Running...
+task2    Running...
+task1    Running...
+task1    Completed in 6ms
+task2    Completed in 15ms
+default  Executing "echo "hello azer!""
+default hello azer!
+
+### Command Line Usage
 
 - To run tasks:
 
