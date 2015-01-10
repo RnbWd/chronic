@@ -63,7 +63,7 @@ $ node [filename] [tasks] [params]
 - to list available tasks in a file, pass -l or --list:
 
 ```bash
-$ node [filename] -l
+$ node [filename] -l # or --list
 ```
 
 - to see help:
