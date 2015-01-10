@@ -37,7 +37,7 @@ chron('default', chron.once('task2'), function(t) {
 - In the commandline run:
 
 ```bash
-$ node [filename] 
+$ node [filename] name=azer
 ```
 
 - Should return:
