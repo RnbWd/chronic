@@ -34,7 +34,7 @@ chron('default', chron.once('task2'), function(t) {
 });
 
 ```
-- In the commandline run:
+- Running:
 
 ```bash
 $ node [filename] name=azer
@@ -42,13 +42,15 @@ $ node [filename] name=azer
 
 - Should return:
 
-default  Running...
-task2    Running...
-task1    Running...
-task1    Completed in 6ms
-task2    Completed in 15ms
-default  Executing "echo "hello azer!""
-default hello azer!
+```bash
+  default  Running...
+  task2    Running...
+  task1    Running...
+  task1    Completed in 6ms
+  task2    Completed in 15ms
+  default  Executing "echo "hello azer!""
+  default hello azer!
+```
 
 ### Command Line Usage
 
