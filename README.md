@@ -64,6 +64,7 @@ chron('default', chron.once('another task'), function(t) {
   - optionally pass in an error `t.done([err])`
 - `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) command
   - looks for local npm dependencies before running command
+  - example: `t.exec('echo "hello {name}!", {name: 'azer'}).then(t.done)`
 - `t.src` - returns `vinyl.src` *(gulp.src)*
   - if `chronic.path('glob')` is defined, calling `t.src()` is the equivalent of calling `t.src('glob')`
   - this can be easily overridden by defining `t.src('glob')` manually
