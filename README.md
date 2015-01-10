@@ -52,7 +52,7 @@ $ node [filename] name=azer
   default hello azer!
 ```
 
-Should run task1, task2, then default 
+Should run 'task1', 'task2', then 'default'
 
 ### Command Line Usage
 
