@@ -40,7 +40,7 @@ chron('task2', chron.once('task1'). function(t) {
 $ node [filename] name=azer
 ```
 
-- Should return:
+- Should run 'task1', 'task2', then 'default':
 
 ```bash
   default  Running...
@@ -51,8 +51,6 @@ $ node [filename] name=azer
   default  Executing "echo "hello azer!""
   default hello azer!
 ```
-
-Should run 'task1', 'task2', then 'default'
 
 ### Command Line Usage
 
