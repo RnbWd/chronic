@@ -36,7 +36,6 @@ function watch () {
   });
 }
 
-
 function transform () {
   return Options.New({
     transform: Array.prototype.slice.call(arguments)
