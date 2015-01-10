@@ -33,7 +33,22 @@ chron('default', chron.once('another task'), function(t) {
   t.done();
 });
 
+```
 
+```bash
+$ node [filename] 
+```
+
+To list available tasks in a file, pass -l or --list;
+
+```bash
+$ node [filename] -l
+```
+
+To see bud help:
+
+```bash
+$ node [filename] -h # or --help
 ```
 
 ## API
