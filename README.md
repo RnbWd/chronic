@@ -85,7 +85,7 @@ $ node [filename] -h # or --help
 - `chronic.once` a comma separated list of tasks (strings)
   - list of tasks that should be *run and completed* prior calling `func` 
 - `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
-  - passed down to `t.src('path')` and `t.files`
+  - passed down to `t.path`, `t.src(t.path)`, and `t.files`
 - `chronic.watch` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.watching` and `t.files`
 - `chronic.transform` a comma separated list of functions that are stream transforms
