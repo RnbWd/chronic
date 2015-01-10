@@ -68,11 +68,8 @@ chron('default', chron.once('another task'), function(t) {
 - `t.dest()` - returns `vinyl.dest` *(gulp.dest)*
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
-- `t.combine` - returns an instance of `pump` that calls `t.done` upon completion or error of stream
+- `t.build` - returns an instance of `pump` that calls `t.done` upon completion or error of stream
   - example: `t.combine(t.src(), t.dest())`
-- `t.build` - calls `pump` with (`t.src()`, -> [`transforms`], -> `t.dest()`), returning `t.done` upon completion or error
-  - this method is syntactical sugar over the most common use pattern of this library
-  - use `t.combine` for more customizable behavior
 - `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) command
   - looks for local npm dependencies before running command
   - example: `t.exec('echo "hello world!"').then(t.done)`
@@ -82,6 +79,11 @@ chron('default', chron.once('another task'), function(t) {
   - `t.files('path')` returns array of files from `chronic.path`
   - `t.files('watching')` returns array of files from `chronic.watch`
 
+#### chronic.build
+
+return function(t) with pump(`t.src()`, -> [`transforms`], -> `t.dest()`), returning `t.done` upon completion or error
+  - this method is syntactical sugar over the most common use pattern of this library
+  
 ## License
 
 MIT
