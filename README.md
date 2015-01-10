@@ -72,6 +72,12 @@ $ node [filename] -l
 $ node [filename] -h # or --help
 ```
 
+- to watch files:
+
+```bash
+$ node [filename] -w # or --watch
+```
+
 ## API
 
 ### chronic(task, opts, [func])
