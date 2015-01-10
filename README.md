@@ -35,21 +35,19 @@ chron('default', chron.once('another task'), function(t) {
 
 ```
 
-## Command Line
-
-To run tasks:
+- To run tasks:
 
 ```bash
 $ node [filename] [tasks...]
 ```
 
-To list available tasks in a file, pass -l or --list:
+- to list available tasks in a file, pass -l or --list:
 
 ```bash
 $ node [filename] -l
 ```
 
-To see help:
+- to see help:
 
 ```bash
 $ node [filename] -h # or --help
