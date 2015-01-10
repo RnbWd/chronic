@@ -23,22 +23,30 @@ This library is built on top of azer's [bud](https://github.com/azer/bud) and gu
 ``` js
 var chron = require('chronic');
 
-chron('first task', chron.src('./one/**').dest('./two'), chron.build)
+chron('task1', chron.src('./one/**').dest('./two'), chron.build)
 
-chron('another task', chron.once('first task'). function(t) {
+chron('task2', chron.once('task1'). function(t) {
   t.build(t.src('./two/**'), t.dest('./three'));
 });
 
-chron('default', chron.once('another task'), function(t) {
+chron('default', chron.once('task2'), function(t) {
   t.done();
 });
 
 ```
+- In the commandline run:
+
+```bash
+$ node [filename] 
+```
+
+- Should return:
+
 
 - To run tasks:
 
 ```bash
-$ node [filename] [tasks...]
+$ node [filename] [tasks] [params]
 ```
 
 - to list available tasks in a file, pass -l or --list:
@@ -90,6 +98,7 @@ $ node [filename] -h # or --help
 - `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) command
   - looks for local npm dependencies before running command
   - example: `t.exec('echo "hello world!"').then(t.done)`
+- `t.params` - paramaters returned from command line
 - `t.path` - returns the contents of `chronic.path`
 - `t.watching` - returns contents of `chronic.watch` 
 - `t.files` - function which returns an array of files
