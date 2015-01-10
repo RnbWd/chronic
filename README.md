@@ -50,7 +50,7 @@ chron('default', chron.once('another task'), function(t) {
   - tasks which should be *run and completed* prior to this task starting
 - `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.src('path')` and `t.files`
-- `chronic.watch` an array or commma separated list of globs
+- `chronic.watch` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.watching` and `t.files`
 - `chronic.transform` a comma separated list of functions that are stream transforms
   - these functions are piped inbetween `t.src` and `t.dest` using [pump](https://github.com/mafintosh/pump)
