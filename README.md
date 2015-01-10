@@ -69,7 +69,7 @@ chron('default', chron.once('another task'), function(t) {
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
 - `t.build` - returns an instance of `pump` that calls `t.done` upon completion or error of stream
-  - example: `t.combine(t.src(), t.dest())`
+  - example: `t.build(t.src(), t.dest())`
 - `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) command
   - looks for local npm dependencies before running command
   - example: `t.exec('echo "hello world!"').then(t.done)`
