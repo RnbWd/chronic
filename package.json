@@ -38,7 +38,7 @@
     "url": "https://github.com/codingalchemy/chronic/issues"
   },
   "publishConfig": {
-    "registry": "https://nasync.com"
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [
     "chronic",
