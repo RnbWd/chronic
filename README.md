@@ -40,7 +40,7 @@ chron('task2', chron.once('task1'). function(t) {
 $ node [filename] name=azer
 ```
 
-- Should return 'task1', 'task2', then 'default':
+- Should run 'task1', 'task2', then 'default' in that order, returning this output:
 
 ```bash
   default  Running...
