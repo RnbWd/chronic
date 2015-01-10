@@ -40,7 +40,7 @@ chron('default', chron.once('another task'), function(t) {
 
 ### chronic(task, opts, [func])
 
-- `task` a string, works similarly to `gulp.task('task', function(..))`. Used to name tasks. 
+- `task` a string used to name tasks. 
 - `opts` a chainable series chronic methods. 
 - `func` a function that contains the paramater `t`
 
@@ -71,7 +71,8 @@ chron('default', chron.once('another task'), function(t) {
 - `t.combine` - returns an instance of `pump` that calls `t.done` upon completion or error of stream
   - example: `t.combine(t.src(), t.dest())`
 - `t.build` - calls `pump` with (`t.src()`, -> [`transforms`], -> `t.dest()`), returning `t.done` upon completion or error
-  - this method is mostly syntactical sugar over the most common use pattern of this library
+  - this method is syntactical sugar over the most common use pattern of this library
+  - see `t.combine` for more customizable behavior
 - `t.path` - contains the contents of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
 - `t.files(['path' | 'watching'])` - returns an array of files
