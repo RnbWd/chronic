@@ -23,18 +23,18 @@ This library is built on top of azer's [bud](https://github.com/azer/bud) and gu
 ``` js
 var chron = require('chronic');
 
+chron('default', chron.once('task2'), function(t) {
+  t.exec('echo hello {name}!"', t.params).then(t.done);
+});
+
 chron('task1', chron.src('./one/**').dest('./two'), chron.build)
 
 chron('task2', chron.once('task1'). function(t) {
   t.build(t.src('./two/**'), t.dest('./three'));
 });
 
-chron('default', chron.once('task2'), function(t) {
-  t.exec('echo hello {name}!"', t.params).then(t.done);
-});
-
 ```
-- Running:
+- Run:
 
 ```bash
 $ node [filename] name=azer
@@ -51,6 +51,8 @@ $ node [filename] name=azer
   default  Executing "echo "hello azer!""
   default hello azer!
 ```
+
+Should run task1, task2, then default 
 
 ### Command Line Usage
 
