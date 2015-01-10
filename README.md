@@ -20,10 +20,6 @@ This library is built on top of azer's [bud](https://github.com/azer/bud) and gu
 
 ## Usage
 
-```bash
-$ node [filename] [tasks]
-```
-
 ``` js
 var chron = require('chronic');
 
@@ -41,13 +37,19 @@ chron('default', chron.once('another task'), function(t) {
 
 ## Command Line
 
-To list available tasks in a file, pass -l or --list;
+To run tasks:
+
+```bash
+$ node [filename] [tasks...]
+```
+
+To list available tasks in a file, pass -l or --list:
 
 ```bash
 $ node [filename] -l
 ```
 
-To see bud help:
+To see help:
 
 ```bash
 $ node [filename] -h # or --help
