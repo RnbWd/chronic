@@ -70,7 +70,7 @@ $ node [filename] -h # or --help
 - `chronic.watch` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.watching` and `t.files`
 - `chronic.transform` a comma separated list of functions that are stream transforms
-  - these functions are piped inbetween `t.src` and `t.dest` using [pump](https://github.com/mafintosh/pump)
+  - these functions are piped inbetween `t.src` and `t.dest` if `chronic.build` is used
   - only gulp-plugins can safely be used at the moment 
 - `chronic.dest` a single string 
   - passed down to `t.dest('path')`
