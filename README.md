@@ -76,11 +76,11 @@ chron('default', chron.once('another task'), function(t) {
 - `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) command
   - looks for local npm dependencies before running command
   - example: `t.exec('echo "hello world!"').then(t.done)`
-- `t.path` - contains the contents of `chronic.path`
-- `t.watching` - returns content of `chronic.watch` 
-- `t.files('path' | 'watching')` - returns an array of files
-  - `t.files('path')` returns the contents of `chronic.path`
-  - ``
+- `t.path` - returns the contents of `chronic.path`
+- `t.watching` - returns contents of `chronic.watch` 
+- `t.files` - function which returns an array of files
+  - `t.files('path')` returns array of files from `chronic.path`
+  - `t.files('watching')` returns array of files from `chronic.watch`
 
 ## License
 
