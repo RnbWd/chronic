@@ -49,6 +49,6 @@ function dest () {
 }
 
 function build (t) {
-  t.build();
+  t.combine();
 }
 
