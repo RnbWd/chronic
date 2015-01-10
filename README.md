@@ -30,7 +30,7 @@ chron('task2', chron.once('task1'). function(t) {
 });
 
 chron('default', chron.once('task2'), function(t) {
-  t.done();
+  t.exec('echo hello {name}!"', t.params).then(t.done);
 });
 
 ```
