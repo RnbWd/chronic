@@ -59,7 +59,7 @@ $ node [filename] -h # or --help
 
 - `task` a string used to name tasks. 
 - `opts` a chainable series chronic methods. 
-- `func` a function that contains the paramater `t`
+- `func` a function that contains the paramater `t`, optionally pass in `chronic.build`
 
 #### opts:
 
