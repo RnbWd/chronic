@@ -48,9 +48,9 @@ chron('default', chron.once('another task'), function(t) {
 
 - `chronic.once` a comma separated list of strings (tasks)
   - tasks which should be *run and completed* prior to this task starting
-- `chronic.path` a glob of string(s), either in an array or commma separated
+- `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.src('path')` and `t.files`
-- `chronic.watch` a glob of string(s), either in an array or commma separated
+- `chronic.watch` an array or commma separated list of globs
   - passed down to `t.watching` and `t.files`
 - `chronic.transform` a comma separated list of functions that are stream transforms
   - these functions are piped inbetween `t.src` and `t.dest` using [pump](https://github.com/mafintosh/pump)
@@ -78,7 +78,9 @@ chron('default', chron.once('another task'), function(t) {
   - example: `t.exec('echo "hello world!"').then(t.done)`
 - `t.path` - contains the contents of `chronic.path`
 - `t.watching` - returns content of `chronic.watch` 
-- `t.files(['path' | 'watching'])` - returns an array of files
+- `t.files('path' | 'watching')` - returns an array of files
+  - `t.files('path')` returns the contents of `chronic.path`
+  - ``
 
 ## License
 
