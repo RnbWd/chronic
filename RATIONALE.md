@@ -109,7 +109,7 @@ var paths = chron.path('./build/**').dest('./public');
 chron('potato', paths, potato);
 
 function potato(t) {
-`if (t.params.potato == 'baked') {
+  if (t.params.potato == 'baked') {
 
     t.build(t.src(), t.dest());
 
