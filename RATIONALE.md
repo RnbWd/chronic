@@ -84,7 +84,7 @@ chron('c', chron
   .path('./examples/**/*.css')
   .transform(concat('style.css'))
   .dest('./examples/build')),
-// chron.build is boilerplate that returns a for function that combines (t.src(), ..transforms, t.dest())
+// chron.build is boilerplate that returns a function that combines (t.src(), ..transforms, t.dest())
   chron.build);
 
 // the order in the config chain doesn't matter - equivalent to keys in an opts {}
