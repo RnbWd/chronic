@@ -13,7 +13,7 @@ I realized that those libraries can be *decoupled* and used *independently* of o
 
 ### Stream error handling
 
-When shit explodes, wtf happened? When my gulp streams would break, the system would collapse into a what I'd describe as a '*meta-unstable*' state, so I wanted to know *why*? I realize that handing errors in nodejs streams is non-intuitive. The solutions for handling these things in gulp are weird and ad-hoc. They encourage users to download 'gulp-plumber' and '[combine-streams](https://github.com/gulpjs/gulp/blob/master/docs/recipes/combining-streams-to-handle-errors.md)', and to return streams so that the task manager knows when it's finished. Ultimately, it's the task-manager's responsibility to know when a stream has finished or exploded so that it can delegate tasks properly. 
+When shit explodes, what happened? When my gulp streams would break, the system would collapse into a what I'd describe as a '*meta-unstable*' state, so I wanted to know *why*? I realize that handing errors in nodejs streams is non-intuitive. The solutions for handling these things in gulp are weird and ad-hoc. They encourage users to download 'gulp-plumber' and '[combine-streams](https://github.com/gulpjs/gulp/blob/master/docs/recipes/combining-streams-to-handle-errors.md)', and to return streams so that the task manager knows when it's finished. Ultimately, it's the task-manager's responsibility to know when a stream has finished or exploded so that it can delegate tasks properly. 
 
 I searched github for the smartest people working with node streams to see how they handled errors and callbacks, and I found [pump](https://github.com/mafintosh/pump). So I just wrap streams in pump, and then I return the callback to the task manager upon completion or error:
 
