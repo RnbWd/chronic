@@ -49,6 +49,10 @@ My solution to this problem is *optional modularity* - which is the ability to *
 
 With minor modifications to azer's bud, I was able to develop a strain of code named *chronic*. This is what it looks like:
 
+```bash
+$ node build -w
+```
+
 ```js
 /* build/bundle.js */
 
@@ -114,10 +118,6 @@ function potato(t) {
 
 }
 
-```
-
-```bash
-node build -w
 ```
 
 
