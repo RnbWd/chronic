@@ -124,5 +124,5 @@ module.exports = function(t) {
 
 ### Conclusion
 
-There is no one way to use the chronic. In fact, you could just use the patterns found here in your own projects. There's also a ton of features not mentioned (like the ability exec command-line functions and pipe into system). Check out azer's [bud](https://github.com/azer/bud) for more info - he's the real genius. 
+There is no one way to use the chronic. In fact, with a little boilerplate you could use these patterns in gulp or bud or anything similar. There's also a ton of features not mentioned (like the ability exec command-line functions and pipe into system). Check out azer's [bud](https://github.com/azer/bud) for more info - he's the real genius. 
 
