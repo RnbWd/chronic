@@ -1,6 +1,6 @@
 ## Rationale
 
-My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. Inspired by Rich Hickey's [talk](https://www.youtube.com/watch?v=6mTbuzafcII), the idea is that you should be able to define very *generic streaming-transforms (ala gulp)* that don't care about *I/O*. It shouldn't matter what files are going in or going out, transforms work the same regardless. This idea is not radical or new, nor does it require an additional library. It's just the glue holding everything together that's modified *ever-so-slightly* so you can **choose** how to best use it for your own needs.
+My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. Inspired by Rich Hickey's [talk](https://www.youtube.com/watch?v=6mTbuzafcII), the idea is that you should be able to define very *generic streaming-transforms (ala gulp)* that don't care about *I/O*. It shouldn't matter what files are going in or going out, transforms work the same regardless. This idea is not radical or new, nor does it require an additional library. It's just the glue holding everything together that's modified *ever-so-slightly* so you can **choose** how to best use it for your own needs. Chronic doesn't actually create transducers for you, that's your job!
 
 ### Background
 
