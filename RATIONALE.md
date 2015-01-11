@@ -112,7 +112,7 @@ chron('potato', paths, require('./potato.js'));
 ```js
 /* build/potato.js */
 
-function potato(t) {
+module.exports = function(t) {
   if (t.params.potato == 'baked') {
 
     t.build(t.src(), t.dest());
