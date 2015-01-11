@@ -122,7 +122,7 @@ module.exports = function(t) {
 ```
 
 
-### Conclusionhttps://github.com/sindresorhus
+### Conclusion
 
 There is no one way to use the chronic. In fact, with a little boilerplate you could use these patterns in gulp or bud or anything similar. Thanks to [azer](https://github.com/azer) and [contra](https://github.com/contra) for writing 90% of this library (unknowingly)!! And I also wanted to thank [substack](https://github.com/substack) and [mafintosh](https://github.com/mafintosh) and [maxogen](https://github.com/maxogden) and [sindlehaus](https://github.com/sindresorhus) for inspiring me.
 
