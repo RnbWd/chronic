@@ -95,7 +95,8 @@ chron('d', paths, function(t) {
 
   t.build(t.src(), t.dest());
 
-  /* t.src() and t.dest() return the equivalent of gulp.src(t.path) and gulp.dest(chron.dest(*)). 
+  /* 
+  t.src() and t.dest() return the equivalent of gulp.src(t.path) and gulp.dest(chron.dest(*)). 
   Using chron.build like the above example would replace this function
   */
 
