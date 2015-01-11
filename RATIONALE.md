@@ -114,8 +114,7 @@ module.exports = function(t) {
   /* 
   - tasks can be defined without prior knowledge of the file-system
   - I can reuse this module in any project
-  - I could also choose to manually include the paths here
-  - Choosing not to use params passed has no impact on the task whatsoever 
+  - Choosing not to use t.path (or any other params passed) has no impact on the task whatsoever 
   */
 }
 
