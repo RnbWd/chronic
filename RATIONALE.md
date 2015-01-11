@@ -37,7 +37,7 @@ chron('task' ,function(t) {
 });
 ```
 
-It's optional to use (as is everything in chronic), but having a simple and consistent way to handle nodejs streams is the most important feature of this library. 
+Notice how it's passed down into the function instead of a direct method of chronic? Everything is optional to use, but having a simple and consistent way to handle nodejs streams is probably the most important feature of this library. 
 
 ### Optional Modularity
 
