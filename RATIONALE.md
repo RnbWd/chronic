@@ -114,7 +114,7 @@ function potato(t) {
     t.build(t.src(), t.dest());
 
   } else {
-    console.log('you forgot to turn off the oven');
+    console.log('you forgot to turn on the oven');
   }
 }
 
