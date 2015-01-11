@@ -15,7 +15,7 @@ I realized that those libraries can be *decoupled* and used *independently* of o
 
 When shit explodes, what happened? My gulp streams would break, then the system would collapse into a what I call a '*meta-unstable*' state. I figured out the hard way that handing errors in nodejs streams is non-intuitive. The solutions for handling errors in gulp are weird and ad-hoc. They encourage users to download 'gulp-plumber' and '[combine-streams](https://github.com/gulpjs/gulp/blob/master/docs/recipes/combining-streams-to-handle-errors.md)', and to return streams so that the task manager knows when it's finished. Ultimately, it's the task-manager's responsibility to know when a stream has finished or exploded so that it can delegate tasks properly. 
 
-I searched github for the smartest people working with node streams to see how they handled errors and callbacks, and I found [pump](https://github.com/mafintosh/pump). So I just wrap streams in pump, and then I return the callback to the task manager upon completion or error:
+I searched github for people 'in the know' with node streams to see how they handled errors and callbacks, and I found [pump](https://github.com/mafintosh/pump). So I just wrap streams in pump, and then I return the callback to the task manager upon completion or error:
 
 ```js
 var pump = require('pump')
