@@ -100,14 +100,14 @@ describe('tasks', function() {
     function each (finish, i) {
       var isRunning = true;
       count++;
-      var task1 = task('task ' + i, function (t) {
+      var chron1 = chron('task' + i, function (t) {
         assert.ok(isRunning);
         setTimeout(function () {
           isRunning = false;
           t.done();
         }, Math.floor(Math.random()*100));
       });
-      task1.run(finish);
+      chron1.run(finish);
     }
   });
 
