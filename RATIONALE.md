@@ -53,12 +53,10 @@ var concat = require('gulp-concat');
 
 chron('default', chron.once('b', 'c', 'd'));
 
-chron('a', chron
-  .watch('./examples/one/*.js', './examples/two/*.js'), 
-  function(t) {
-    // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
-    t.build(t.src(t.watching), concat('do.js'), t.dest('./examples/three'));
-  });
+chron('a', chron.watch('./examples/one/*.js', './examples/two/*.js'), function(t) {
+  // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
+  t.build(t.src(t.watching), concat('do.js'), t.dest('./examples/three'));
+});
 
 /*
  this task will wait for 'a' to finish before starting, so I'm confident "three/do.js" exists.
