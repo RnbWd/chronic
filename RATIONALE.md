@@ -50,7 +50,7 @@ My solution to this problem is *optional modularity* - which is the ability to *
 With minor modifications to azer's bud, I was able to develop a strain of code named *chronic*. This is what it looks like:
 
 ```js
-/* bundle.js */
+/* build/bundle.js */
 
 var browserify = require('browserify');
 var source = require('vinyl-source');
@@ -69,6 +69,8 @@ module.exports = function(t) {
 
 
 ```js
+/* build/index.js */ 
+
 var chron = require('chronic');
 var concat = require('gulp-concat');
 
@@ -112,6 +114,10 @@ function potato(t) {
 
 }
 
+```
+
+```bash
+node build -w
 ```
 
 
