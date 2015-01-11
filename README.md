@@ -85,7 +85,7 @@ $ node [filename] -w # or --watch
 
 - `task` a string used to name tasks. 
 - `opts` a chainable series chronic methods. 
-- `func` a function that contains the paramater `t`, optionally pass in `chronic.build`
+- `func` a function that contains the paramater `t`, optionally use `chronic.build`
 
 #### opts:
 
