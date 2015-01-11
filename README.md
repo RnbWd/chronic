@@ -14,7 +14,7 @@ npm install chronic --save-dev
 
 ## Background
 
-This library is built on top of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/codingalchemy/chronic/blob/master/RATIONALE.md).
+My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. This library is built on top of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/codingalchemy/chronic/blob/master/RATIONALE.md).
 *The API internals of this libary are very much in flux and subject to change*
 
 
@@ -24,7 +24,7 @@ This library is built on top of azer's [bud](https://github.com/azer/bud) and gu
 var chron = require('chronic');
 
 chron('default', chron.once('task2'), function(t) {
-  t.exec('echo hello {name}!"', t.params).then(t.done);
+  t.exec('echo dat {bud}!"', t.params).then(t.done);
 });
 
 chron('task1', chron.src('./one/**').dest('./two'), chron.build)
@@ -37,7 +37,7 @@ chron('task2', chron.once('task1'). function(t) {
 - Run:
 
 ```bash
-$ node [filename] name=azer
+$ node [filename] bud=chronic
 ```
 
 - Should run 'task1', 'task2', then 'default' in that order, returning this output:
@@ -48,8 +48,8 @@ $ node [filename] name=azer
   task1    Running...
   task1    Completed in 6ms
   task2    Completed in 15ms
-  default  Executing "echo "hello azer!""
-  default hello azer!
+  default  Executing "echo "dat chronic!""
+  default dat chronic!
 ```
 
 ### Command Line Usage
@@ -110,7 +110,7 @@ $ node [filename] -w # or --watch
 - `t.dest()` - returns `vinyl.dest` *(gulp.dest)*
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
-- `t.build` - returns an instance of `pump` that calls `t.done` upon completion or error of stream
+- `t.build` - returns an instance of [pump](https://github.com/mafintosh/pump) that calls `t.done` upon completion or error of stream
   - example: `t.build(t.src(), t.dest())`
 - `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) command
   - looks for local npm dependencies before running command
@@ -126,6 +126,11 @@ $ node [filename] -w # or --watch
 
 - returns `function(t)` with `pump(t.src(), -> [transforms], -> t.dest())`, returning `t.done` upon completion or error
 - this method is syntactical sugar over the most common use pattern of this library
+
+
+## TODO
+
+More examples and tests and stuff coming soon!!
 
 ## License
 

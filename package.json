@@ -1,7 +1,7 @@
 {
   "name": "chronic",
   "version": "0.1.1",
-  "description": "gulp-task-transducers",
+  "description": "vinyl-task-transducers",
   "repository": "codingalchemy/chronic",
   "main": "index.js",
   "bin": "./bin/chron",
@@ -42,9 +42,16 @@
   },
   "keywords": [
     "chronic",
-    "gulp",
+    "vinyl",
     "task",
-    "transducer"
+    "transducer",
+    "gulp",
+    "vinyl-fs",
+    "streams",
+    "bud", 
+    "manager",
+    "fs",
+    "tasks"
   ],
   "author": "RnbWd",
   "license": "MIT"
