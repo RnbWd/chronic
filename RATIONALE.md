@@ -97,7 +97,6 @@ chron('d', paths, function(t) {
 
   /* 
   t.src() and t.dest() return the equivalent of gulp.src(['./build/**']) and gulp.dest('./public'). 
-  Using chron.build like the above example would replace this function
   */
 
 });
