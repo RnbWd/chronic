@@ -47,7 +47,7 @@ My solution to this problem is *optional modularity* - which is the ability to *
 
 ### Examples
 
-With minor modifications to azer's bud, I was able to develop a strain of code I named *chronic*. This is what it looks like:
+With minor modifications to azer's bud, I was able to develop a strain of code named *chronic*. This is what it looks like:
 
 ```js
 var chron = require('chronic');
