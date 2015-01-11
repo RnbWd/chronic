@@ -102,7 +102,7 @@ chron('css', chron
   .dest('./examples/build')),
   chron.build);
 
-// chron.build is boilerplate that returns a function that combines (t.src(), ..transforms, t.dest())
+// chron.build is boilerplate that pumps everything together
 
 var paths = chron.path('./build/**').dest('./public');
 
