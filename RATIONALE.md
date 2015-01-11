@@ -80,14 +80,12 @@ var concat = require('gulp-concat');
 
 chron('default', chron.once('bundle', 'css', 'potato'));
 
-/*
- 'bundle' will wait for 'concat' to finish before starting, so I'm confident "chronic/bud.js" exists.
-*/
-
 chron('bundle', chron.once('concat')
   .path('./examples/chronic/bud.js', 'bundle.js')
   .dest('./build'),
   require('./bundle.js'));
+
+// 'bundle' will wait for 'concat' to finish before starting, so I'm confident "chronic/bud.js" exists.
 
 chron('concat', chron
   .watch('./examples/one/*.js', './examples/two/*.js'), 
