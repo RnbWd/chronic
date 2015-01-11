@@ -100,9 +100,7 @@ chron('css', chron
   .path('./examples/**/*.css')
   .transform(concat('style.css'))
   .dest('./examples/build')),
-  chron.build);
-
-// chron.build is boilerplate that pumps everything together
+  chron.build); // chron.build is boilerplate that pumps everything together
 
 var paths = chron.path('./build/**').dest('./oven');
 
