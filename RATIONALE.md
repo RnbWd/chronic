@@ -109,7 +109,7 @@ module.exports = function(t) {
   var b = browserify();
   b.add(t.path[0] /* ['./examples/three/do.js'] */ )
 
-  t.build(b.bundle(), source(path[1] /* bundle.js */), t.dest());
+  t.build(b.bundle(), source(t.path[1] /* bundle.js */), t.dest());
 
   /* 
   - tasks can be defined without prior knowledge of the file-system
