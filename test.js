@@ -1,17 +1,17 @@
-var task = require('./');
+var chron = require('./');
 var loop = require("parallel-loop");
 var assert = require('assert');
 
 
 describe('default', function() {
-  task('default', function(t) { t.done() });
+  chron('default', function(t) { t.done() });
   it('should run default', function() {});
 })
 
 describe('tasks', function() {
   var count = 0;
   it('should run a simple task', function (done) {
-    var task1 = task('foo bar', function (t) {
+    var chron1 = chron('foo bar', function (t) {
       setTimeout(function () {
         t.done();
         count++
@@ -24,18 +24,45 @@ describe('tasks', function() {
       }, 100);
     });
 
-    assert.equal(task1.key, 'foo-bar');
-    assert.equal(task1.name, 'foo bar');
-    assert.equal(task1.watching, undefined);
-    assert.equal(task1.path, undefined);
-    task1.run();
+    assert.equal(chron1.key, 'foo-bar');
+    assert.equal(chron1.name, 'foo bar');
+    assert.equal(chron1.watching, undefined);
+    assert.equal(chron1.path, undefined);
+    chron1.run();
 
   });
 
+//   it('do what I describe in examples', function (done) {
+//     chron('bundle', chron.once('concat')
+//       .path('./examples/chronic/bud.js', 'bundle.js')
+//       .dest('./build'),
+//       require('./bundle.js'));
+
+//     // 'bundle' will wait for 'concat' to finish before starting, so I'm confident "chronic/bud.js" exists.
+
+//     chron('concat', chron
+//       .watch('./examples/one/*.js', './examples/two/*.js'), 
+//       ctask);
+
+//     function ctask(t) {
+//       t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
+//       // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
+//     }
+
+//     chron('css', chron
+//       .path('./examples/**/*.css')
+//       .transform(concat('style.css'))
+//       .dest('./examples/build')),
+//       chron.build); // chron.build is boilerplate that pumps everything together
+
+// var paths = chron.path('./build/**').dest('./oven');
+
+// chron('potato', paths, require('./potato.js'));
+//   });
 
   it('should run a task with options', function (done) {
 
-    task('lorem ipsum', task.watch('**/*.js', '**/*.css', '!node_modules/**'), function (t) {
+    chron('lorem ipsum', chron.watch('**/*.js', '**/*.css', '!node_modules/**'), function (t) {
       assert.deepEqual(t.watching, ['**/*.js', '**/*.css', '!node_modules/**']);
       assert.deepEqual(t.files('watching'), [ 'examples/build/a.js',
                                     'examples/build/b.js',
@@ -90,7 +117,7 @@ describe('tasks', function() {
     var t2done = false;
     var t3done = false;
 
-    task('foo 1', task.path('examples/build/*.js').watch('examples/build/*.js'), function (t) {
+    chron('foo 1', chron.path('examples/build/*.js').watch('examples/build/*.js'), function (t) {
       assert.deepEqual(t.path, [ 'examples/build/*.js' ]);
       assert.deepEqual(t.watching, [ 'examples/build/*.js' ]);
       assert.deepEqual(t.files(), t.files('path'));
@@ -106,7 +133,7 @@ describe('tasks', function() {
       }, 50);
     });
 
-    task('bar 2', task.path('examples/build/*.scss').dest('public').watch('examples/build/*.css'), function (t) {
+    chron('bar 2', chron.path('examples/build/*.scss').dest('public').watch('examples/build/*.css'), function (t) {
       assert.deepEqual(t.path, [ 'examples/build/*.scss' ]);
       assert.equal(t.options._dest, 'public');
       assert.deepEqual(t.files(), [ 'examples/build/style.scss' ]);
@@ -122,7 +149,7 @@ describe('tasks', function() {
       }, 100);
     });
 
-    var t3 = task('qux', task.once('foo 1', 'bar-2'), function (t) {
+    var t3 = chron('qux', chron.once('foo 1', 'bar-2'), function (t) {
       assert.equal(t.files('path'), undefined);
       assert.deepEqual(t.watching, [ 'examples/build/*.js', 'examples/build/*.css' ]);
       assert.deepEqual(t.files(), t.files('watching'));
@@ -149,5 +176,6 @@ describe('tasks', function() {
     });
   });
 
+  
 
 })
