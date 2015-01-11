@@ -9,7 +9,7 @@ Chronic is a task manager that works very similar gulp. It's built on top of aze
 * [orchestrator](https://github.com/orchestrator/orchestrator) - the task manager `gulp.task`
 * [vinyl-fs](https://github.com/wearefractal/vinyl-fs) - the streaming file-system `gulp.src` and `gulp.dest`
 
-I realized that those libraries can be *decoupled* and used *independently* of one another. After discovering azer's [bud](https://github.com/azer/bud) 6 months ago, I began using it as my primary task manger. At this point, you can stop reading and just use vinyl-fs with bud because that is ultimately what this library is all about... but there's two more fundamental aspects of this system that I've included - **stream error handling** and **optional modularity**.
+I realized that those libraries can be *decoupled* and used *independently* of one another. After discovering azer's [bud](https://github.com/azer/bud), I began using it as my primary task manger. At this point, you can stop reading and just use vinyl-fs with bud because that is ultimately what this library is all about... but there's two more fundamental aspects of this system that I've included - **stream error handling** and **optional modularity**.
 
 ### Stream error handling
 
