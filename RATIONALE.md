@@ -51,26 +51,25 @@ With minor modifications to azer's bud, I was able to develop a strain of code I
 var chron = require('chronic');
 var concat = require('gulp-concat');
 
-chron('default', chron.once('b', 'c', 'd'));
-
-chron('a', chron.watch('./examples/one/*.js', './examples/two/*.js'), function(t) {
-  // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
-  t.build(t.src(t.watching), concat('do.js'), t.dest('./examples/three'));
-});
+chron('default', chron.once('bundle', 'css', 'potato'));
 
 /*
- this task will wait for 'a' to finish before starting, so I'm confident "three/do.js" exists.
- I'm passing params to a hybrid browserify / gulp build - see below for more info.
+ 'bundle' will wait for 'concat' to finish before starting, so I'm confident "chronic/bud.js" exists.
 */
 
-chron('b', chron.once('a')
-  .path('./examples/three/do.js', 'bundle.js')
+chron('bundle', chron.once('concat')
+  .path('./examples/chronic/bud.js', 'bundle.js')
   .dest('./build'),
   require('./bundle.js'));
 
+chron('concat', chron
+  .watch('./examples/one/*.js', './examples/two/*.js'), 
+  function(t) {
+    // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
+    t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
+});
 
-
-chron('c', chron
+chron('css', chron
   .path('./examples/**/*.css')
   .transform(concat('style.css'))
   .dest('./examples/build')),
@@ -81,7 +80,7 @@ chron('c', chron
 
 var paths = chron.dest('./public').path('./build/**');
 
-chron('d', paths, function(t) {
+chron('potato', paths, function(t) {
 
   t.build(t.src(), t.dest());
 
