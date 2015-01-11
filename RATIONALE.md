@@ -53,16 +53,12 @@ var concat = require('gulp-concat');
 
 chron('default', chron.once('b', 'c', 'd'));
 
-/* 
-- without returning a function it'll run 'b', 'c', and 'd' in parallel 
-- using -w in the command line will let chronic know to watch all files in chron.watch('glob') 
-*/
+// using -w in the command line will let chronic know to watch all files in chron.watch('glob') 
 
 chron('a', chron
   .watch('./examples/one/*.js', './examples/two/*.js'), 
   function(t) {
     // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
-
     t.build(t.src(t.watching), concat('do.js'), t.dest('./examples/three'));
   });
 
