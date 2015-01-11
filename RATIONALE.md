@@ -27,7 +27,7 @@ function(done) {
 }
 ```
 
-But there's no sense in having to include pump and this error-handling boilerplate in every build-file of every project. So I put it chronic:
+But why include pump and this error-handling boilerplate in every build-file of every project? So I put it chronic:
 
 ```js
 var chron = require('chronic');
