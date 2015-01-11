@@ -67,7 +67,7 @@ module.exports = function(t) {
 
 }
 
-// files can be passed down from a central task index
+// files can be passed down from a central build index
 
 ```
 
