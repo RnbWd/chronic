@@ -50,7 +50,7 @@ My solution to this problem is *optional modularity* - which is the ability to *
 With minor modifications to azer's bud, I was able to develop a strain of code named *chronic*. This is what it looks like:
 
 ```bash
-$ node build -w
+$ node build potato=baked -w
 ```
 
 ```js
@@ -110,9 +110,11 @@ chron('potato', paths, potato);
 
 function potato(t) {
 
-  t.build(t.src(), t.dest());
-
-  // t.src() and t.dest() return the equivalent of gulp.src(['./build/**']) and gulp.dest('./public'). 
+  if (t.params.potato == 'baked')
+    t.build(t.src(), t.dest());
+  else {
+    console.log('you forgot to turn off the oven');
+  }
 
 }
 
