@@ -50,6 +50,29 @@ My solution to this problem is *optional modularity* - which is the ability to *
 With minor modifications to azer's bud, I was able to develop a strain of code named *chronic*. This is what it looks like:
 
 ```js
+/* bundle.js */
+
+var browserify = require('browserify');
+var source = require('vinyl-source');
+
+module.exports = function(t) {
+  var b = browserify();
+  b.add(t.path[0]);  // './examples/three/do.js' 
+
+  t.build(b.bundle(), source(t.path[1])/* bundle.js */, t.dest());
+
+}
+
+  /* 
+  - tasks can be defined without prior knowledge of the file-system
+  - I can reuse this module in any project
+  - Choosing not to use t.path (or any other params passed) has no impact on the task whatsoever 
+  */
+
+```
+
+
+```js
 var chron = require('chronic');
 var concat = require('gulp-concat');
 
@@ -66,50 +89,35 @@ chron('bundle', chron.once('concat')
 
 chron('concat', chron
   .watch('./examples/one/*.js', './examples/two/*.js'), 
-  function(t) {
-    // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
-    t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
-});
+  ctask);
+
+function ctask(t) {
+  t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
+  // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
+}
 
 chron('css', chron
   .path('./examples/**/*.css')
   .transform(concat('style.css'))
   .dest('./examples/build')),
-// chron.build is boilerplate that returns a function that combines (t.src(), ..transforms, t.dest())
   chron.build);
 
-// the order in the config chain doesn't matter - equivalent to keys in an opts {}
+// chron.build is boilerplate that returns a function that combines (t.src(), ..transforms, t.dest())
 
-var paths = chron.dest('./public').path('./build/**');
+var paths = chron.path('./build/**').dest('./public');
 
-chron('potato', paths, function(t) {
+chron('potato', paths, potato);
+
+function potato(t) {
 
   t.build(t.src(), t.dest());
 
   // t.src() and t.dest() return the equivalent of gulp.src(['./build/**']) and gulp.dest('./public'). 
 
-});
-
-```
-
-```js
-var browserify = require('browserify');
-var source = require('vinyl-source');
-
-module.exports = function(t) {
-  var b = browserify();
-  b.add(t.path[0] /* './examples/three/do.js' */ )
-
-  t.build(b.bundle(), source(t.path[1] /* bundle.js */), t.dest());
-
-  /* 
-  - tasks can be defined without prior knowledge of the file-system
-  - I can reuse this module in any project
-  - Choosing not to use t.path (or any other params passed) has no impact on the task whatsoever 
-  */
 }
 
 ```
+
 
 ### Conclusion
 
