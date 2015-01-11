@@ -95,9 +95,7 @@ chron('d', paths, function(t) {
 
   t.build(t.src(), t.dest());
 
-  /* 
-  t.src() and t.dest() return the equivalent of gulp.src(['./build/**']) and gulp.dest('./public'). 
-  */
+  // t.src() and t.dest() return the equivalent of gulp.src(['./build/**']) and gulp.dest('./public'). 
 
 });
 
