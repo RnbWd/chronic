@@ -110,12 +110,13 @@ chron('potato', paths, potato);
 
 function potato(t) {
 
-  if (t.params.potato == 'baked')
+  if (t.params.potato == 'baked') {
+
     t.build(t.src(), t.dest());
-  else {
+
+  } else {
     console.log('you forgot to turn off the oven');
   }
-
 }
 
 ```
