@@ -67,7 +67,7 @@ module.exports = function(t) {
 
 }
 
-// modules can be built without prior knowledge of the file-system because files can be passed down from a central task index.
+// files can be passed down from a central task index
 
 ```
 
