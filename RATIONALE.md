@@ -104,9 +104,13 @@ chron('css', chron
 
 // chron.build is boilerplate that pumps everything together
 
-var paths = chron.path('./build/**').dest('./potato');
+var paths = chron.path('./build/**').dest('./oven');
 
-chron('potato', paths, potato);
+chron('potato', paths, require('./potato.js'));
+```
+
+```js
+/* build/potato.js */
 
 function potato(t) {
   if (t.params.potato == 'baked') {
@@ -117,7 +121,6 @@ function potato(t) {
     console.log('you forgot to turn on the oven');
   }
 }
-
 ```
 
 
