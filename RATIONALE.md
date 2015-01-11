@@ -68,7 +68,10 @@ chron('a', chron
     t.build(t.src(t.watching), concat('do.js'), t.dest('./examples/three'));
   });
 
-// this task will wait for 'a' to finish before starting, ensuring that three/do.js exists
+/*
+ this task will wait for 'a' to finish before starting, so I'm confident "three/do.js" exists.
+ I'm passing params to a hybrid browserify / gulp build - see below for more info.
+*/
 
 chron('b', chron.once('a')
   .path('./examples/three/do.js', 'bundle.js')
