@@ -51,14 +51,12 @@ With minor modifications to azer's bud, I was able to develop a strain of code I
 var chron = require('chronic');
 var concat = require('gulp-concat');
 
-/* 
-default is run if no tasks are explicitly named at runtime
-without returning a function it'll run 'b', 'c', and 'd' in parallel 
-*/
-
 chron('default', chron.once('b', 'c', 'd'));
 
-// using -w in the command line will let chronic know to watch all files in chron.watch('glob') and retrigger the task if any files are modified
+/* 
+- without returning a function it'll run 'b', 'c', and 'd' in parallel 
+- using -w in the command line will let chronic know to watch all files in chron.watch('glob') 
+*/
 
 chron('a', chron
   .watch('./examples/one/*.js', './examples/two/*.js'), 
