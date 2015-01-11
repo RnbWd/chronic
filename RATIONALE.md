@@ -45,7 +45,7 @@ This principle is based on my own experience working with gulp and trying to reu
 
 My solution to this problem is *optional modularity* - which is the ability to *define parameters that are passed down into modules in a flexible manner*. This facilitates the creation of *an amorphous cuddle puddle of tasks*, where there are no strict boundaries between their composition or configuration. By *piping* I/O (`gulp.src` and `gulp.dest`) into modules that *pump together transducer-like-streaming-transforms*, you can create a very flexible build system.
 
-With minor modifications to azer's bud, I was able to develop a strain of code I named the 'chronic'. This is what it looks like:
+With minor modifications to azer's bud, I was able to develop a strain of code I named *chronic*. This is what it looks like:
 
 ```js
 var chron = require('chronic');
