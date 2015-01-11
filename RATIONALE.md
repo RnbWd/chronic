@@ -41,7 +41,7 @@ It's optional to use (as is everything in chronic), but having a simple and cons
 
 ### Optional Modularity
 
-This principle based on my own experience working with gulp and trying to reuse code on multiple projects. I break apart my tasks into commonjs modules, *where each module is responsible for a single task* ('html', 'css', 'js', ..). But if the project's fs changes, then I need to manually change the **src** and **dest** for *every single task-file*. I/O is inherently coupled with gulp streams via `gulp.src` and `gulp.dest`, making it *difficult to create reusable modules* for changing file-systems.  
+This principle is based on my own experience working with gulp and trying to reuse code on multiple projects. I break apart my tasks into commonjs modules, *where each module is responsible for a single task* ('html', 'css', 'js', ..). But if the project's fs changes, then I need to manually change the **src** and **dest** for *every single task-file*. I/O is inherently coupled with gulp streams via `gulp.src` and `gulp.dest`, making it *difficult to create reusable modules* for changing file-systems.  
 
 My solution to this problem is *optional modularity* - which is the ability to *define parameters that are passed down into modules in a flexible manner*. This facilitates the creation of *an amorphous cuddle puddle of tasks*, where there are no strict boundaries between their composition or configuration. By *piping* I/O (`gulp.src` and `gulp.dest`) into modules that *pump together transducer-like-streaming-transforms*, you can create a very flexible build system.
 
