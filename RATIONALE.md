@@ -104,7 +104,7 @@ chron('css', chron
 
 // chron.build is boilerplate that pumps everything together
 
-var paths = chron.path('./build/**').dest('./public');
+var paths = chron.path('./build/**').dest('./potato');
 
 chron('potato', paths, potato);
 
