@@ -136,3 +136,5 @@ More examples and tests and stuff coming soon!!
 ## License
 
 MIT
+
+![hamilton](https://github.com/codingalchemy/chronic/blob/master/hamilton.JPG)
