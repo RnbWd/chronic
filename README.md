@@ -29,9 +29,9 @@ chron('default', chron.once('task2'), function(t) {
 
 chron('task1', chron.src('./one/**').dest('./two'), chron.build)
 
-chron('task2', chron.once('task1'), task2);
+chron('task2', chron.once('task1'), tasktwo);
 
-function task2 (t) {
+function tasktwo(t) {
   t.build(t.src('./two/**'), t.dest('./three'));
 }
 ```
