@@ -51,8 +51,10 @@ With minor modifications to azer's bud, I was able to develop a strain of code I
 var chron = require('chronic');
 var concat = require('gulp-concat');
 
-// default is run if no tasks are explicitly named at runtime
-// without returning a function it'll run 'b', 'c', and 'd' in parallel 
+/* 
+default is run if no tasks are explicitly named at runtime
+without returning a function it'll run 'b', 'c', and 'd' in parallel 
+*/
 
 chron('default', chron.once('b', 'c', 'd'));
 
