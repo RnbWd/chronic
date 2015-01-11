@@ -62,10 +62,7 @@ module.exports = function(t) {
   t.build(b.bundle(), source(t.path[1])/* bundle.js */, t.dest());
 
 }
-
-  /* 
-  - modules can be built without prior knowledge of the file-system because files can be passed down from a central task index.
-  */
+// modules can be built without prior knowledge of the file-system because files can be passed down from a central task index.
 
 ```
 
