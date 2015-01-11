@@ -4,7 +4,7 @@ My goal is to provide a balance between *configuration and customization* throug
 
 ### Background
 
-Chronic is a task manager that works very similar gulp. It's built on top of azer's [bud](https://github.com/azer/bud), which is a very simple and intuitive task manager, and it incorporates the [vinyl-fs](https://github.com/wearefractal/vinyl-fs). If you've looked at gulp's [source code](https://github.com/gulpjs/gulp/blob/master/index.js), you'll see that it's mostly built from these two libraries: 
+Chronic is a task manager that works very similar gulp. It's built on top of azer's [bud](https://github.com/azer/bud), which is a small task manager, and it incorporates the [vinyl-fs](https://github.com/wearefractal/vinyl-fs). If you've looked at gulp's [source code](https://github.com/gulpjs/gulp/blob/master/index.js), you'll see that it's mostly built from these two libraries: 
 
 * [orchestrator](https://github.com/orchestrator/orchestrator) - the task manager `gulp.task`
 * [vinyl-fs](https://github.com/wearefractal/vinyl-fs) - the streaming file-system `gulp.src` and `gulp.dest`
