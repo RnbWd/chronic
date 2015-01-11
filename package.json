@@ -1,6 +1,6 @@
 {
   "name": "chronic",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "vinyl-task-transducers",
   "repository": "codingalchemy/chronic",
   "main": "index.js",
@@ -48,7 +48,7 @@
     "gulp",
     "vinyl-fs",
     "streams",
-    "bud", 
+    "bud",
     "manager",
     "fs",
     "tasks"
