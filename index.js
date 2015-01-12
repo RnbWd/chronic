@@ -49,6 +49,12 @@ function dest () {
 }
 
 function build (t) {
-  t.combine();
+  var transforms = t.options._transform || [];
+  var list = [];
+  list.push(t.src());
+  list = list.concat(transforms);
+  list.push(t.dest());
+  t.pump(list, t.done);
 }
+
 
