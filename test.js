@@ -1,6 +1,9 @@
 var chron = require('./');
 var loop = require("parallel-loop");
 var assert = require('assert');
+var concat = require('gulp-concat');
+var del = require('del');
+var pump = require('pump');
 
 
 describe('default', function() {
@@ -32,58 +35,65 @@ describe('tasks', function() {
 
   });
 
-//   it('do what I describe in examples', function (done) {
-//     chron('bundle', chron.once('concat')
-//       .path('./examples/chronic/bud.js', 'bundle.js')
-//       .dest('./build'),
-//       require('./bundle.js'));
+  it('should do some stuff I describe in examples', function (done) {
 
-//     // 'bundle' will wait for 'concat' to finish before starting, so I'm confident "chronic/bud.js" exists.
+    chron('del', function(t) {
+      del('./examples/chronic/bud.js', function(err) {
+        t.done(err);
+      })
+    })
 
-//     chron('concat', chron
-//       .watch('./examples/one/*.js', './examples/two/*.js'), 
-//       ctask);
+    chron('concat', chron.once('del')
+      .watch('./examples/one/*.js', './examples/two/*.js'), 
+      ctask)
 
-//     function ctask(t) {
-//       t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
-//       // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
-//     }
+    chron('bundle', chron.once('concat')
+      .path('./examples/chronic/bud.js', 'bundle.js')
+      .dest('./examples/build'),
+      bundle).run()
 
-//     chron('css', chron
-//       .path('./examples/**/*.css')
-//       .transform(concat('style.css'))
-//       .dest('./examples/build')),
-//       chron.build); // chron.build is boilerplate that pumps everything together
+    function bundle(t) {
+      pump(t.src(t.path[0]), t.dest(), function(err) {
+        t.done();
+        done(err);
+      });
+      assert.deepEqual(t.path, [ './examples/chronic/bud.js', 'bundle.js' ]);
+    }
 
-// var paths = chron.path('./build/**').dest('./oven');
+    function ctask(t) {
+      t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
+      assert.deepEqual(t.watching, ['./examples/one/*.js', './examples/two/*.js']); 
+    }
 
-// chron('potato', paths, require('./potato.js'));
-//   });
+    
+  });
 
   it('should run a task with options', function (done) {
 
     chron('lorem ipsum', chron.watch('**/*.js', '**/*.css', '!node_modules/**'), function (t) {
       assert.deepEqual(t.watching, ['**/*.js', '**/*.css', '!node_modules/**']);
       assert.deepEqual(t.files('watching'), [ 'examples/build/a.js',
-                                    'examples/build/b.js',
-                                    'examples/build/c.js',
-                                    'examples/build/dist.js',
-                                    'examples/build/do.js',
-                                    'examples/one/do.js',
-                                    'examples/three/do.js',
-                                    'examples/two/do.js',
-                                    'index.js',
-                                    'lib/cli.js',
-                                    'lib/exec.js',
-                                    'lib/map.js',
-                                    'lib/options.js',
-                                    'lib/run.js',
-                                    'lib/task.js',
-                                    'test.js',
-                                    'examples/build/a.css',
-                                    'examples/build/b.css',
-                                    'examples/build/c.css',
-                                    'examples/build/dist.css' ]);
+                                              'examples/build/b.js',
+                                              'examples/build/bud.js',
+                                              'examples/build/c.js',
+                                              'examples/build/dist.js',
+                                              'examples/build/do.js',
+                                              'examples/chronic/bud.js',
+                                              'examples/one/do.js',
+                                              'examples/three/do.js',
+                                              'examples/two/do.js',
+                                              'index.js',
+                                              'lib/cli.js',
+                                              'lib/exec.js',
+                                              'lib/map.js',
+                                              'lib/options.js',
+                                              'lib/run.js',
+                                              'lib/task.js',
+                                              'test.js',
+                                              'examples/build/a.css',
+                                              'examples/build/b.css',
+                                              'examples/build/c.css',
+                                              'examples/build/dist.css' ]);
       t.done();
       done();
     }).run();
@@ -124,6 +134,7 @@ describe('tasks', function() {
       assert.deepEqual(t.files('path'), t.files('watching'));
       assert.deepEqual(t.files(), [ 'examples/build/a.js',
                                     'examples/build/b.js',
+                                    'examples/build/bud.js',
                                     'examples/build/c.js',
                                     'examples/build/dist.js',
                                     'examples/build/do.js' ]);
@@ -155,6 +166,7 @@ describe('tasks', function() {
       assert.deepEqual(t.files(), t.files('watching'));
       assert.deepEqual(t.files(), [ 'examples/build/a.js',
                                     'examples/build/b.js',
+                                    'examples/build/bud.js',
                                     'examples/build/c.js',
                                     'examples/build/dist.js',
                                     'examples/build/do.js',
@@ -175,7 +187,8 @@ describe('tasks', function() {
       done();
     });
   });
+});
 
   
 
-})
+

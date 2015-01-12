@@ -24,6 +24,8 @@
     "vinyl-fs": "git+https://github.com/RnbWd/vinyl-fs.git#rnbwd"
   },
   "devDependencies": {
+    "del": "1.1.1",
+    "gulp-concat": "2.4.3",
     "mocha": "2.1.0"
   },
   "bundledDependencies": [
