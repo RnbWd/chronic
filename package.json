@@ -21,7 +21,8 @@
     "serial-loop": "0.0.1",
     "style-format": "0.0.0",
     "through": "2.3.6",
-    "vinyl-fs": "git+https://github.com/RnbWd/vinyl-fs.git#rnbwd"
+    "vinyl-fs": "git+https://github.com/RnbWd/vinyl-fs.git#rnbwd",
+    "vinyl-source-stream": "1.0.0"
   },
   "devDependencies": {
     "del": "1.1.1",
