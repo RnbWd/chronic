@@ -38,7 +38,7 @@ function tasktwo(t) {
 - Run:
 
 ```bash
-$ node [filename] --bud=chronic
+$ node <filename> --bud=chronic
 ```
 
 - Should run 'task1', 'task2', then 'default' in that order, returning this output:
@@ -59,7 +59,7 @@ $ node [filename] --bud=chronic
 - To run tasks:
 
 ```bash
-$ node <filename> <tasks> [params]
+$ node <filename> <tasks> <params>
 ```
 
 - to watch files:
