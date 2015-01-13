@@ -7,6 +7,8 @@ process.nextTick(function () {
 
 module.exports = create;
 module.exports.once = once;
+module.exports.after = once;
+module.exports.follow = once;
 module.exports.path = path;
 module.exports.watch = watch;
 module.exports.transform = transform;

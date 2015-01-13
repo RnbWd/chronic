@@ -27,10 +27,10 @@ My goal is to provide a balance between *configuration and customization* throug
 var chron = require('chronic');
 
 chron('default', chron.once('task2'), function(t) {
-  t.exec('echo dat {bud}!"', t.params).then(t.done);
+  t.exec('echo dat {bud}!', t.params);
 });
 
-chron('task1', chron.src('./one/**').dest('./two'), chron.build)
+chron('task1', chron.path('./one/**').dest('./two'), chron.build)
 
 chron('task2', chron.once('task1'), tasktwo);
 
@@ -41,7 +41,7 @@ function tasktwo(t) {
 - Run:
 
 ```bash
-$ node [filename] bud=chronic
+$ node [filename] --bud=chronic
 ```
 
 - Should run 'task1', 'task2', then 'default' in that order, returning this output:
@@ -51,9 +51,10 @@ $ node [filename] bud=chronic
   task2    Running...
   task1    Running...
   task1    Completed in 6ms
-  task2    Completed in 15ms
-  default  Executing "echo "dat chronic!""
-  default dat chronic!
+  task2    Completed in 7ms
+  default  Executing "echo dat chronic!"
+  default  dat chronic!
+  default  Completed in 10ms
 ```
 
 ### Command Line Usage
@@ -86,45 +87,55 @@ $ node [filename] -w # or --watch
 
 ### chronic(task, opts, [func])
 
-- `task` a string used to name tasks. 
-- `opts` a chainable series chronic methods. 
-- `func` a function that contains the paramater `t`, optionally use `chronic.build`
+* `task` a string used to name tasks. 
+* `opts` a chainable series chronic methods. 
+* `func` a function that contains the paramater `t`, optionally use `chronic.build`
 
 #### opts:
 
-- `chronic.once` a comma separated list of tasks (strings)
+* `chronic.once` a comma separated list of tasks (strings)
   - list of tasks that should be *run and completed* prior calling `func` 
-- `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
-  - passed down to `t.path`, `t.src(t.path)`, and `t.files`
-- `chronic.watch` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
+  - `chronic.follow` or `chronic.after` can also be used
+* `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
+  - passed down to `t.path`, `t.src()`
+* `chronic.dest` a single string 
+  - passed down to `t.dest()`
+* `chronic.watch` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.watching` and `t.files`
-- `chronic.transform` a comma separated list of functions that are stream transforms
+* `chronic.transform` a comma separated list of functions that are stream transforms
   - these functions are piped inbetween `t.src` and `t.dest` if `chronic.build` is used
   - only gulp-plugins can safely be used at the moment 
-- `chronic.dest` a single string 
-  - passed down to `t.dest('path')`
+
 
 #### *func(* **t** *)* :
 
-- `t.done` - callback which determines if a task has completed
+**Priority methods**
+
+* `t.done` - callback which determines if a task has completed
   - optionally pass in an error `t.done([err])`
-- `t.src` - returns `vinyl.src` *(gulp.src)*
-  - if `chronic.path('glob')` is defined, calling `t.src()` is the equivalent of calling `t.src('glob')`
+* `t.src` - returns `vinyl.src` *(gulp.src)*
+  - if `chronic.path` is defined, calling `t.src()` is populated with the content of `chronic.path` 
   - this can be easily overridden by defining `t.src('glob')` manually
-- `t.dest()` - returns `vinyl.dest` *(gulp.dest)*
+* `t.dest` - returns `vinyl.dest` *(gulp.dest)*
   - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
   - this can also be overriden 
-- `t.build` - returns an instance of [pump](https://github.com/mafintosh/pump) that calls `t.done` upon completion or error of stream
+* `t.build` - returns an instance of [pump](https://github.com/mafintosh/pump) that calls `t.done` upon completion or error of stream
   - example: `t.build(t.src(), t.dest())`
-- `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) command
-  - looks for local npm dependencies before running command
-  - example: `t.exec('echo "hello world!"').then(t.done)`
-- `t.params` - paramaters returned from command line
-- `t.path` - returns the contents of `chronic.path`
-- `t.watching` - returns contents of `chronic.watch` 
-- `t.files` - function which returns an array of files
-  - `t.files('path')` returns array of files from `chronic.path`
-  - `t.files('watching')` returns array of files from `chronic.watch`
+* `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) calling `t.done()` upon completion
+  - uses [format-text](https://www.npmjs.com/package/format-text) instead of looking for env variables
+  - example: `t.exec('echo hello {place}!', {place: 'world'})`
+
+**Helper methods**
+
+* `t.params` - paramaters returned from command line
+* `t.path` - returns the contents of `chronic.path`
+* `t.watching` - returns contents of `chronic.watch` 
+* `t.files` - returns an array of files from t.watching
+   - used internally to watch files being watched, 
+* `t.source` - returns [vinyl-source-stream](https://www.npmjs.com/package/vinyl-source-stream)
+* `t.buffer` - return [vinyl-buffer](https://www.npmjs.com/package/vinyl-buffer)
+* `t.pump` - returns [pump](https://www.npmjs.com/package/pump)
+* `t.eos` - returns [end-of-stream](https://www.npmjs.com/package/end-of-stream)
 
 #### chronic.build
 

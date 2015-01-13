@@ -7,27 +7,27 @@
   "bin": "./bin/chron",
   "dependencies": {
     "byline": "4.1.1",
+    "chalk": "0.5.1",
     "chokidar": "0.12.6",
+    "each-async": "1.1.1",
+    "end-of-stream": "1.1.0",
     "format-text": "0.0.3",
     "globby": "1.1.0",
-    "local-debug": "0.0.0",
-    "new-command": "1.0.2",
+    "meow": "2.1.0",
     "new-struct": "0.1.1",
     "npm-execspawn": "1.0.6",
-    "parallel-loop": "0.0.3",
     "pubsub": "1.0.2",
     "pump": "1.0.0",
     "right-pad": "0.0.0",
-    "serial-loop": "0.0.1",
-    "style-format": "0.0.0",
-    "through": "2.3.6",
+    "through2": "0.6.3",
     "vinyl-fs": "git+https://github.com/RnbWd/vinyl-fs.git#rnbwd",
     "vinyl-source-stream": "1.0.0"
   },
   "devDependencies": {
     "del": "1.1.1",
     "gulp-concat": "2.4.3",
-    "mocha": "2.1.0"
+    "mocha": "2.1.0",
+    "parallel-loop": "0.0.3"
   },
   "bundledDependencies": [
     "vinyl-fs"
