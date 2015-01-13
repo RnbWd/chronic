@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2
+
+* `chron.src` can be used for `chron.path` (optional)
+* `chron.files` can be used for `chron.watch` (optional)
+
 ## 0.2.1
 
 * Updated Readme :)
