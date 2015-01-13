@@ -120,8 +120,8 @@ $ node <filename> -l # or --list
 ------
 
 * `t.params` - paramaters returned from command line
-* `t.path` - returns the contents of `chronic.path`
-* `t.watching` - returns contents of `chronic.watch` 
+* `t.path` - returns an array of strings from `chronic.path`
+* `t.watching` - returns an array strings from `chronic.watch` 
 * `t.files` - returns an array of files from t.watching
    - used internally to watch files being watched, 
 * `t.source` - returns [vinyl-source-stream](https://www.npmjs.com/package/vinyl-source-stream)
