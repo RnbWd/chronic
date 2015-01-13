@@ -1,6 +1,8 @@
 # Changelog
 
-## 0.2.0 [BREAKING CHANGES]
+## 0.2.0 
+
+[BREAKING CHANGES]
 
 * `t.exec` calls `t.done()` upon stream completion
 * All flags are passed down to `t.params`, and you can no longer pass down non-flagged params. 
