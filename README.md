@@ -9,17 +9,14 @@
 [![Stability Status](https://img.shields.io/badge/stability-unstable-orange.svg?style=flat-square)](https://github.com/dominictarr/stability#experimental)
 
 
-**-- PROJECT IS TEMPORARILY BROKEN WATCHING FILES :( --**
-
 ```bash
 npm install chronic --save-dev
 ```
 
 ## Background
 
-My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. This library is built on top of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/codingalchemy/chronic/blob/master/RATIONALE.md).
+My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. This library is now a heavily modified version of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/codingalchemy/chronic/blob/master/RATIONALE.md).
 *The API internals of this libary are very much in flux and subject to change*
-
 
 ## Usage
 
@@ -62,25 +59,19 @@ $ node [filename] --bud=chronic
 - To run tasks:
 
 ```bash
-$ node [filename] [tasks] [params]
-```
-
-- to list available tasks in a file, pass -l or --list:
-
-```bash
-$ node [filename] -l # or --list
-```
-
-- to see help:
-
-```bash
-$ node [filename] -h # or --help
+$ node <filename> <tasks> [params]
 ```
 
 - to watch files:
 
 ```bash
 $ node [filename] -w # or --watch
+```
+
+- to list available tasks in a file, pass -l or --list:
+
+```bash
+$ node [filename] -l # or --list
 ```
 
 ## API
