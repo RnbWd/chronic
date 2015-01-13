@@ -88,13 +88,15 @@ $ node <filename> -l # or --list
 
 * `chronic.once` a comma separated list of tasks (strings)
   - list of tasks that should be *run and completed* prior calling `func` 
-  - `chronic.follow` or `chronic.after` can also be used
+  - `chronic.follow` or `chronic.after` may also be used
   - may be used without `func` eg: `chron('default', chron.once('task'))`
 * `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
-  - passed down to `t.path`, `t.src()`
+  - `chronic.src` may also be used
+  - passed down to `t.src()` and `t.path`
 * `chronic.dest` a single string 
   - passed down to `t.dest()`
 * `chronic.watch` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
+  - `chronic.files` may also be used
   - passed down to `t.watching` and `t.files`
 * `chronic.transform` a comma separated list of functions that are stream transforms
   - these functions are piped inbetween `t.src` and `t.dest` if `chronic.build` is used
