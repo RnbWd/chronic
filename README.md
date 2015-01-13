@@ -8,6 +8,9 @@
 [![Dependency Status](https://img.shields.io/david/codingalchemy/chronic.svg?style=flat-square)](https://david-dm.org/codingalchemy/chronic)
 [![Stability Status](https://img.shields.io/badge/stability-unstable-orange.svg?style=flat-square)](https://github.com/dominictarr/stability#experimental)
 
+
+**-- PROJECT IS TEMPORARILY BROKEN WATCHING FILES :( --**
+
 ```bash
 npm install chronic --save-dev
 ```
