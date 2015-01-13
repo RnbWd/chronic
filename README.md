@@ -65,13 +65,13 @@ $ node <filename> <tasks> [params]
 - to watch files:
 
 ```bash
-$ node [filename] -w # or --watch
+$ node <filename> -w # or --watch
 ```
 
-- to list available tasks in a file, pass -l or --list:
+- to list available tasks in a file:
 
 ```bash
-$ node [filename] -l # or --list
+$ node <filename> -l # or --list
 ```
 
 ## API
