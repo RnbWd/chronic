@@ -76,17 +76,18 @@ $ node <filename> -l # or --list
 
 ## API
 
-### chronic(task, opts, [func])
+### chronic(task, [opts, func])
 
 * `task` a string used to name tasks. 
 * `opts` a chainable series chronic methods. 
-* `func` a function that contains the paramater `t`, optionally use `chronic.build`
+* `func` a function that contains the paramater `t`, optionally use [chronic.build](#chronicbuild)
 
 #### opts:
 
 * `chronic.once` a comma separated list of tasks (strings)
   - list of tasks that should be *run and completed* prior calling `func` 
   - `chronic.follow` or `chronic.after` can also be used
+  - may be used without `func` eg: `chron('default', chron.once('task'))`
 * `chronic.path` an array or commma separated list of globs (see [globby](https://github.com/sindresorhus/globby))
   - passed down to `t.path`, `t.src()`
 * `chronic.dest` a single string 
@@ -99,8 +100,6 @@ $ node <filename> -l # or --list
 
 
 #### *func(* **t** *)* :
-
-**Priority methods**
 
 * `t.done` - callback which determines if a task has completed
   - optionally pass in an error `t.done([err])`
@@ -115,8 +114,8 @@ $ node <filename> -l # or --list
 * `t.exec` - returns formatted [npm-execspawn](https://github.com/mafintosh/npm-execspawn) calling `t.done()` upon completion
   - uses [format-text](https://www.npmjs.com/package/format-text) instead of looking for env variables
   - example: `t.exec('echo hello {place}!', {place: 'world'})`
-
-**Helper methods**
+  
+------
 
 * `t.params` - paramaters returned from command line
 * `t.path` - returns the contents of `chronic.path`
