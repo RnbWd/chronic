@@ -24,9 +24,9 @@
 * When watching files, tasks will not re-run unless they are explicitly finished. 
     - eg: call `t.done()` or use helper functions like `t.build` or `chron.build`.
 * `chron.after` && `chron.follow` are synonyms for `chron.once` (optional)
-* Following modules were replaced (but should have minimal on usage):
+* Following modules were replaced (but should have minimal impact on usage):
     - [parallel-loop](https://www.npmjs.com/package/parallel-loop) --> [each-async](https://www.npmjs.com/package/each-async)
-    - [through](https://www.npmjs.com/package/through) --> [through2](https://www.npmjs.com/package/through2) (if you're not using node > 0.10 then download [readableStream](https://www.npmjs.com/package/readable-stream) is required)
+    - [through](https://www.npmjs.com/package/through) --> [through2](https://www.npmjs.com/package/through2) (if you're not using node > 0.10 (who?) then download [readableStream](https://www.npmjs.com/package/readable-stream))
     - [new-command](https://www.npmjs.com/package/new-command) --> [meow](https://www.npmjs.com/package/meow)
     - [style-format](https://www.npmjs.com/package/style-format) --> [chalk](https://www.npmjs.com/package/chalk)
 * Added [vinyl-buffer](https://www.npmjs.com/package/vinyl-buffer) and [end-of-stream](https://www.npmjs.com/package/end-of-stream)
