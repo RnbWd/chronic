@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+*bug-fix  -- 'changed: ' is only emitted once now
+
 ## 0.2.2
 
 * `chron.src` can be used for `chron.path` (optional)
