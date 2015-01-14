@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.4
+
+* enhancement  -- 'watching: ' emits tasks instead of 'glob'
+* enhancement -- changed: / watching: are also white
+
 ## 0.2.3
 
 * bug-fix  -- 'changed: ' is only emitted once now
