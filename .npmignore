@@ -1,3 +1,7 @@
 .DS_Store
 .git
 npm-debug.log
+fake-folder
+test.js
+.travis.yml
+hamilton.jpg
