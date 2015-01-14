@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.6
+
+* changed .npmignore (no need to include erroneous cat.jpg or fake-folder when npm installing library)
+* changed test folder example to fake-folder
+
+## 0.2.5
+
+* accidentally hit `npm version patch`
+
 ## 0.2.4
 
 * enhancement  -- 'watching: ' emits tasks instead of 'glob'
