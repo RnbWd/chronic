@@ -38,18 +38,18 @@ describe('tasks', function() {
   it('should do some stuff I describe in examples', function (done) {
 
     chron('del', function(t) {
-      del('./examples/chronic/bud.js', function(err) {
+      del('./fake-folder/chronic/bud.js', function(err) {
         t.done(err);
       })
     })
 
     chron('concat', chron.follow('del')
-      .watch('./examples/one/*.js', './examples/two/*.js'), 
+      .watch('./fake-folder/one/*.js', './fake-folder/two/*.js'), 
       ctask)
 
     chron('bundle', chron.after('concat')
-      .path('./examples/chronic/bud.js', 'bundle.js')
-      .dest('./examples/build'),
+      .path('./fake-folder/chronic/bud.js', 'bundle.js')
+      .dest('./fake-folder/build'),
       bundle).run()
 
     function bundle(t) {
@@ -57,12 +57,12 @@ describe('tasks', function() {
         t.done();
         done(err);
       });
-      assert.deepEqual(t.path, [ './examples/chronic/bud.js', 'bundle.js' ]);
+      assert.deepEqual(t.path, [ './fake-folder/chronic/bud.js', 'bundle.js' ]);
     }
 
     function ctask(t) {
-      t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
-      assert.deepEqual(t.watching, ['./examples/one/*.js', './examples/two/*.js']); 
+      t.build(t.src(t.watching), concat('bud.js'), t.dest('./fake-folder/chronic'));
+      assert.deepEqual(t.watching, ['./fake-folder/one/*.js', './fake-folder/two/*.js']); 
     }
 
     
@@ -72,16 +72,16 @@ describe('tasks', function() {
 
     chron('lorem ipsum', chron.watch('**/*.js', '**/*.css', '!node_modules/**'), function (t) {
       assert.deepEqual(t.watching, ['**/*.js', '**/*.css', '!node_modules/**']);
-      assert.deepEqual(t.files, [ 'examples/build/a.js',
-                                  'examples/build/b.js',
-                                  'examples/build/bud.js',
-                                  'examples/build/c.js',
-                                  'examples/build/dist.js',
-                                  'examples/build/do.js',
-                                  'examples/chronic/bud.js',
-                                  'examples/one/do.js',
-                                  'examples/three/do.js',
-                                  'examples/two/do.js',
+      assert.deepEqual(t.files, [ 'fake-folder/build/a.js',
+                                  'fake-folder/build/b.js',
+                                  'fake-folder/build/bud.js',
+                                  'fake-folder/build/c.js',
+                                  'fake-folder/build/dist.js',
+                                  'fake-folder/build/do.js',
+                                  'fake-folder/chronic/bud.js',
+                                  'fake-folder/one/do.js',
+                                  'fake-folder/three/do.js',
+                                  'fake-folder/two/do.js',
                                   'index.js',
                                   'lib/cli.js',
                                   'lib/exec.js',
@@ -90,10 +90,10 @@ describe('tasks', function() {
                                   'lib/run.js',
                                   'lib/task.js',
                                   'test.js',
-                                  'examples/build/a.css',
-                                  'examples/build/b.css',
-                                  'examples/build/c.css',
-                                  'examples/build/dist.css' ]);
+                                  'fake-folder/build/a.css',
+                                  'fake-folder/build/b.css',
+                                  'fake-folder/build/c.css',
+                                  'fake-folder/build/dist.css' ]);
       console.log(t.files);
       t.done();
       done();
@@ -128,28 +128,28 @@ describe('tasks', function() {
     var t2done = false;
     var t3done = false;
 
-    chron('foo 1', chron.path('examples/build/*.js').watch('examples/build/*.js'), function (t) {
-      assert.deepEqual(t.path, ['examples/build/*.js']);
-      assert.deepEqual(t.watching, ['examples/build/*.js']);
-      assert.deepEqual(t.files, [ 'examples/build/a.js',
-                                  'examples/build/b.js',
-                                  'examples/build/bud.js',
-                                  'examples/build/c.js',
-                                  'examples/build/dist.js',
-                                  'examples/build/do.js' ]);
+    chron('foo 1', chron.path('fake-folder/build/*.js').watch('fake-folder/build/*.js'), function (t) {
+      assert.deepEqual(t.path, ['fake-folder/build/*.js']);
+      assert.deepEqual(t.watching, ['fake-folder/build/*.js']);
+      assert.deepEqual(t.files, [ 'fake-folder/build/a.js',
+                                  'fake-folder/build/b.js',
+                                  'fake-folder/build/bud.js',
+                                  'fake-folder/build/c.js',
+                                  'fake-folder/build/dist.js',
+                                  'fake-folder/build/do.js' ]);
       setTimeout(function () {
         t.done();
         t1done = true;
       }, 50);
     });
 
-    chron('bar 2', chron.path('examples/build/*.scss').dest('public').watch('examples/build/*.css'), function (t) {
-      assert.deepEqual(t.path, [ 'examples/build/*.scss' ]);
+    chron('bar 2', chron.path('fake-folder/build/*.scss').dest('public').watch('fake-folder/build/*.css'), function (t) {
+      assert.deepEqual(t.path, [ 'fake-folder/build/*.scss' ]);
       assert.equal(t.options._dest, 'public');
-      assert.deepEqual(t.files, [ 'examples/build/a.css',
-                                  'examples/build/b.css',
-                                  'examples/build/c.css',
-                                  'examples/build/dist.css' ]);
+      assert.deepEqual(t.files, [ 'fake-folder/build/a.css',
+                                  'fake-folder/build/b.css',
+                                  'fake-folder/build/c.css',
+                                  'fake-folder/build/dist.css' ]);
 
       setTimeout(function () {
         t.done();
@@ -159,16 +159,16 @@ describe('tasks', function() {
 
     var t3 = chron('qux', chron.once('foo 1', 'bar-2'), function (t) {
       assert.equal(t.path, undefined);
-      assert.deepEqual(t.files, [ 'examples/build/a.js',
-                                    'examples/build/b.js',
-                                    'examples/build/bud.js',
-                                    'examples/build/c.js',
-                                    'examples/build/dist.js',
-                                    'examples/build/do.js',
-                                    'examples/build/a.css',
-                                    'examples/build/b.css',
-                                    'examples/build/c.css',
-                                    'examples/build/dist.css' ]);
+      assert.deepEqual(t.files, [ 'fake-folder/build/a.js',
+                                    'fake-folder/build/b.js',
+                                    'fake-folder/build/bud.js',
+                                    'fake-folder/build/c.js',
+                                    'fake-folder/build/dist.js',
+                                    'fake-folder/build/do.js',
+                                    'fake-folder/build/a.css',
+                                    'fake-folder/build/b.css',
+                                    'fake-folder/build/c.css',
+                                    'fake-folder/build/dist.css' ]);
       setTimeout(function () {
         assert.ok(t1done);
         assert.ok(t2done);
@@ -185,5 +185,6 @@ describe('tasks', function() {
 });
 
   
+
 
 
