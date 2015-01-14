@@ -21,7 +21,7 @@ My goal is to provide a balance between *configuration and customization* throug
 
 see [CHANGELOG](https://github.com/codingalchemy/chronic/blob/master/CHANGELOG.md)
 
-Examples? [Chronic-Seed](https://github.com/codingalchemy/chronic-seed)
+[Examples?](https://github.com/codingalchemy/chronic-seed)
 
 ## Usage
 
