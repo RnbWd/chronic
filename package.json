@@ -1,6 +1,6 @@
 {
   "name": "chronic",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "vinyl-task-transducers",
   "repository": "codingalchemy/chronic",
   "main": "index.js",
