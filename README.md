@@ -17,11 +17,11 @@ npm install chronic --save-dev
 
 My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. This library is now a heavily modified version of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/codingalchemy/chronic/blob/master/RATIONALE.md). 
 
-Example project - [chronic-seed](https://github.com/codingalchemy/chronic-seed)
-
 *The API internals of this libary are very much in flux and subject to change*
 
 see [CHANGELOG](https://github.com/codingalchemy/chronic/blob/master/CHANGELOG.md)
+
+Examples? [Chronic-Seed](https://github.com/codingalchemy/chronic-seed)
 
 ## Usage
 
