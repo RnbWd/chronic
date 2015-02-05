@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+
+* Actually console.warn's errors
+* Updated vinyl-fs repository
+
 ## 0.2.6
 
 * changed .npmignore (no need to include erroneous cat.jpg or fake-folder when npm installing library)
