@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2
+
+* Upgraded Chokidar
+
 ## 0.4.0 [BREAKING CHANGES]
 
   * API has been finalized, there were some errors with the naming system (or ability to rename methods)
