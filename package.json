@@ -8,7 +8,7 @@
   "dependencies": {
     "byline": "4.2.1",
     "chalk": "0.5.1",
-    "chokidar": "0.12.6",
+    "chokidar": "1.0.0-rc3",
     "each-async": "1.1.1",
     "end-of-stream": "1.1.0",
     "format-text": "0.0.3",
