@@ -33,8 +33,7 @@
     "vinyl-fs"
   ],
   "scripts": {
-    "test": "mocha",
-    "git-update": "git add .; git commit -m 'update'; git push"
+    "test": "mocha"
   },
   "homepage": "https://github.com/codingalchemy/chronic",
   "bugs": {

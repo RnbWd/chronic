@@ -6,13 +6,9 @@ process.nextTick(function () {
 });
 
 module.exports = create;
-module.exports.once = once;
-module.exports.after = once;
-module.exports.follow = once;
-module.exports.path = path;
-module.exports.src = path;
+module.exports.after = after;
+module.exports.source = source;
 module.exports.watch = watch;
-module.exports.files = watch;
 module.exports.transform = transform;
 module.exports.dest = dest;
 module.exports.build = build;
@@ -22,15 +18,15 @@ function create () {
   return Task.New.apply(undefined, arguments);
 }
 
-function once () {
+function after () {
   return Options.New({
-    once: Array.prototype.slice.call(arguments)
+    after: Array.prototype.slice.call(arguments)
   });
 }
 
-function path () {
+function source () {
   return Options.New({
-    path: Array.prototype.slice.call(arguments)
+    source: Array.prototype.slice.call(arguments)
   });
 }
 
