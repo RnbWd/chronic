@@ -6,7 +6,7 @@
 
 [![Build Status](https://img.shields.io/travis/codingalchemy/chronic.svg?style=flat-square)](https://travis-ci.org/codingalchemy/chronic)
 [![Dependency Status](https://img.shields.io/david/codingalchemy/chronic.svg?style=flat-square)](https://david-dm.org/codingalchemy/chronic)
-[![Stability Status](https://img.shields.io/badge/stability-unstable-orange.svg?style=flat-square)](https://github.com/dominictarr/stability#experimental)
+[![Stability Status](https://img.shields.io/badge/stability-stable-green.svg?style=flat-square)](https://github.com/dominictarr/stability#experimental)
 
 
 ```bash
@@ -17,24 +17,23 @@ npm install chronic --save-dev
 
 My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. This library is now a heavily modified version of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/codingalchemy/chronic/blob/master/RATIONALE.md). 
 
-*The API internals of this libary are very much in flux and subject to change*
+Please read the [CHANGELOG](https://github.com/codingalchemy/chronic/blob/master/CHANGELOG.md)
 
-see [CHANGELOG](https://github.com/codingalchemy/chronic/blob/master/CHANGELOG.md)
+The API internals recently went through some final namespace orientation, which may result in breaking changes to current code, but the API is now stable.
 
-[Examples?](https://github.com/codingalchemy/chronic-seed)
 
 ## Usage
 
 ``` js
 var chron = require('chronic');
 
-chron('default', chron.once('task2'), function(t) {
+chron('default', chron.after('task2'), function(t) {
   t.exec('echo dat {bud}!', t.params);
 });
 
-chron('task1', chron.path('./one/**').dest('./two'), chron.build)
+chron('task1', chron.source('./one/**').dest('./two'), chron.build)
 
-chron('task2', chron.once('task1'), tasktwo);
+chron('task2', chron.after('task1'), tasktwo);
 
 function tasktwo(t) {
   t.build(t.src('./two/**'), t.dest('./three'));
@@ -89,18 +88,15 @@ $ node <filename> -l # or --list
 
 #### opts:
 
-* `chronic.once` a comma separated list of tasks (strings)
+* `chronic.after` a comma separated list of tasks (strings)
   - list of tasks that should be *run and completed* prior calling `func` 
-  - `chronic.follow` or `chronic.after` may also be used (optional)
-  - may be used without `func` eg: `chron('default', chron.once('task'))`
-* `chronic.path` an array or commma separated list of globby strings passed to `vinyl.src` (see [globby](https://github.com/sindresorhus/globby))
-  - `chronic.src` may also be used (optional)
-  - passed down to `t.src()` and `t.path`
+  - may be used without `func` eg: `chron('default', chron.after('task'))`
+* `chronic.source` an array or commma separated list of globby strings passed to `vinyl.src` (see [globby](https://github.com/sindresorhus/globby))
+  - passed down to `t.src()` and `t.files`
 * `chronic.dest` a single string 
-  - passed down to `t.dest()`
+  - passed down to `t.dest()` and  `t.path`
 * `chronic.watch` an array or commma separated list of globby strings to watch (see [globby](https://github.com/sindresorhus/globby))
-  - `chronic.files` may also be used (optional)
-  - passed down to `t.watching` and `t.files`
+  - passed down to `t.watching`
 * `chronic.transform` a comma separated list of functions that are stream transforms
   - these functions are piped inbetween `t.src` and `t.dest` if `chronic.build` is used
   - only gulp-plugins can safely be used at the moment 
@@ -111,10 +107,10 @@ $ node <filename> -l # or --list
 * `t.done` - callback which determines if a task has completed
   - optionally pass in an error `t.done([err])`
 * `t.src` - returns `vinyl.src` *(gulp.src)*
-  - if `chronic.path` is defined, calling `t.src()` is populated with the content of `chronic.path` 
+  - if `chronic.source` is defined, calling `t.src()` is populated with the content of `t.files`  
   - this can be easily overridden by defining `t.src('glob')` manually
 * `t.dest` - returns `vinyl.dest` *(gulp.dest)*
-  - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `chronic.dest`
+  - if `chronic.dest` is defined, calling `t.dest()` is populated with the content of `t.path`
   - this can also be overriden 
 * `t.build` - returns an instance of [pump](https://github.com/mafintosh/pump) that calls `t.done` upon completion or error of stream
   - example: `t.build(t.src(), t.dest())`
@@ -125,9 +121,9 @@ $ node <filename> -l # or --list
 ------
 
 * `t.params` - paramaters returned from command line
-* `t.path` - returns an array of strings from `chronic.path`
-* `t.watching` - returns an array strings from `chronic.watch` 
-* `t.files` - returns an array of files from t.watching
+* `t.files` - returns an array of strings from `chronic.source`
+* `t.path` - returns an array of strings from `chronic.dest`
+* `t.watching` - returns an array of files from `chronic.watch`
    - used internally to watch files being watched, 
 * `t.source` - returns [vinyl-source-stream](https://www.npmjs.com/package/vinyl-source-stream)
 * `t.buffer` - return [vinyl-buffer](https://www.npmjs.com/package/vinyl-buffer)

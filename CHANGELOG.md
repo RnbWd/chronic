@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.0 [BREAKING CHANGES]
+
+  * API has been finalized, there were some errors with the naming system (or ability to rename methods)
+  * The changes are as follows:
+    -  `chronic.source` has replaced `chronic.path`
+    -  `chronic.after` has replaced `chronic.once`
+    -  there are no optional name changes, this is the only way to call those methods
+    -  `t.files` contains the content of `chronic.source`
+    -  `t.path` contains the content of `chornic.dest`
+    -  `t.watching` contains an array of files being watched
+
+  * Everything else is the same, just finalized API
+
 ## 0.3.0
 
 * Actually console.warn's errors

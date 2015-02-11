@@ -57,13 +57,12 @@ $ node build --potato=baked -w
 /* build/bundle.js */
 
 var browserify = require('browserify');
-var source = require('vinyl-source');
 
 module.exports = function(t) {
   var b = browserify();
-  b.add(t.path[0]);  // './examples/three/do.js' 
+  b.add(t.files[0]);  // './examples/three/do.js' 
 
-  t.build(b.bundle(), source(t.path[1])/* bundle.js */, t.dest());
+  t.build(b.bundle(), t.source(t.files[1])/* bundle.js */, t.dest());
 
 }
 
@@ -78,26 +77,26 @@ module.exports = function(t) {
 var chron = require('chronic');
 var concat = require('gulp-concat');
 
-chron('default', chron.once('bundle', 'css', 'potato'));
+chron('default', chron.after('bundle', 'css', 'potato'));
 
-chron('bundle', chron.once('concat')
-  .path('./examples/chronic/bud.js', 'bundle.js')
+chron('bundle', chron.after('concat')
+  .source('./examples/chronic/bud.js', 'bundle.js')
   .dest('./build'),
   require('./bundle.js'));
 
 // 'bundle' will wait for 'concat' to finish before starting, so I'm confident "chronic/bud.js" exists.
 
 chron('concat', chron
-  .watch('./examples/one/*.js', './examples/two/*.js'), 
+  .source('./examples/one/*.js', './examples/two/*.js'), 
   ctask);
 
 function ctask(t) {
-  t.build(t.src(t.watching), concat('bud.js'), t.dest('./examples/chronic'));
-  // t.watching = ['./examples/params/*.js', './examples/params/*.js'] 
+  t.build(t.src(t.files), concat('bud.js'), t.dest('./examples/chronic'));
+  // t.files = ['./examples/params/*.js', './examples/params/*.js'] 
 }
 
 chron('css', chron
-  .path('./examples/**/*.css')
+  .source('./examples/**/*.css')
   .transform(concat('style.css'))
   .dest('./examples/build')),
   chron.build); // chron.build is boilerplate that pumps everything together
