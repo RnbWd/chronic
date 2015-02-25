@@ -2,7 +2,7 @@
   "name": "chronic",
   "version": "0.4.2",
   "description": "vinyl-task-transducers",
-  "repository": "codingalchemy/chronic",
+  "repository": "RnbWd/chronic",
   "main": "index.js",
   "bin": "./bin/chron",
   "dependencies": {
@@ -20,7 +20,7 @@
     "pump": "1.0.0",
     "right-pad": "0.0.0",
     "through2": "0.6.3",
-    "vinyl-fs": "git+https://github.com/codingalchemy/vinyl-fs.git#rnbwd",
+    "vinyl-fs": "git+https://github.com/RnbWd/vinyl-fs.git#rnbwd",
     "vinyl-source-stream": "1.0.0"
   },
   "devDependencies": {
@@ -35,9 +35,9 @@
   "scripts": {
     "test": "mocha"
   },
-  "homepage": "https://github.com/codingalchemy/chronic",
+  "homepage": "https://github.com/RnbWd/chronic",
   "bugs": {
-    "url": "https://github.com/codingalchemy/chronic/issues"
+    "url": "https://github.com/RnbWd/chronic/issues"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
