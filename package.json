@@ -1,6 +1,6 @@
 {
   "name": "chronic",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "vinyl-task-transducers",
   "repository": "RnbWd/chronic",
   "main": "index.js",
