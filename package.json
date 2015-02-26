@@ -9,7 +9,7 @@
     "byline": "4.2.1",
     "chalk": "1.0.0",
     "chokidar": "1.0.0-rc3",
-    "each-async": "1.1.2",
+    "each-async": "1.1.1",
     "end-of-stream": "1.1.0",
     "format-text": "0.0.3",
     "globby": "1.2.0",
