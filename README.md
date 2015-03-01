@@ -4,7 +4,7 @@
 
 [![NPM](https://nodei.co/npm/chronic.png)](https://nodei.co/npm/chronic/)
 
-[![Build Status](https://img.shields.io/travis/rnbwd/chronic.svg?style=flat-square)](https://travis-ci.org/rnbwd/chronic)
+[![Build Status](https://travis-ci.org/RnbWd/chronic.svg?branch=master)](https://travis-ci.org/RnbWd/chronic)
 [![Dependency Status](https://img.shields.io/david/rnbwd/chronic.svg?style=flat-square)](https://david-dm.org/rnbwd/chronic)
 [![Stability Status](https://img.shields.io/badge/stability-stable-green.svg?style=flat-square)](https://github.com/dominictarr/stability#experimental)
 
