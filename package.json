@@ -8,8 +8,8 @@
   "dependencies": {
     "byline": "4.2.1",
     "chalk": "1.0.0",
-    "chokidar": "1.0.0-rc3",
-    "each-async": "1.1.1",
+    "chokidar": "1.0.0-rc6",
+    "each-async": "2.0.0",
     "end-of-stream": "1.1.0",
     "format-text": "0.0.3",
     "globby": "1.2.0",
@@ -19,19 +19,20 @@
     "pubsub": "1.0.2",
     "pump": "1.0.0",
     "right-pad": "0.0.0",
-    "through2": "0.6.3",
-    "vinyl-fs": "git+https://github.com/RnbWd/vinyl-fs.git#rnbwd",
-    "vinyl-source-stream": "1.0.0"
+    "through2": "1.1.1",
+    "vinyl": "0.4.6",
+    "vinyl-file": "1.1.1",
+    "vinyl-fs": "1.0.0",
+    "vinyl-paths": "1.0.0",
+    "vinyl-source-stream": "1.1.0",
+    "vinyl-transform": "1.0.0"
   },
   "devDependencies": {
     "del": "1.1.1",
     "gulp-concat": "2.5.2",
-    "mocha": "2.1.0",
+    "mocha": "2.2.1",
     "parallel-loop": "0.0.3"
   },
-  "bundledDependencies": [
-    "vinyl-fs"
-  ],
   "scripts": {
     "test": "mocha"
   },
