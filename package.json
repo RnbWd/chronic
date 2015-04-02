@@ -8,44 +8,34 @@
     "url": "https://github.com/RnbWd/chronic/issues"
   },
   "dependencies": {
-    "JSONStream": "0.10.0",
-    "assert": "1.3.0",
-    "atomic-queue": "5.0.2",
-    "browser-pack": "4.0.1",
     "byline": "4.2.1",
     "chalk": "1.0.0",
     "chokidar": "1.0.0-rc6",
-    "concat-stream": "1.4.7",
-    "data.task": "3.0.0",
-    "del": "1.1.1",
-    "deps-sort": "1.3.5",
     "each-async": "2.0.0",
-    "each-module": "1.1.0",
     "end-of-stream": "1.1.0",
-    "fastparallel": "1.2.1",
     "format-text": "0.0.3",
-    "globby": "1.2.0",
-    "gulp-concat": "2.5.2",
-    "labeled-stream-splicer": "1.0.2",
     "meow": "3.1.0",
-    "mocha": "2.2.1",
     "new-struct": "0.1.1",
     "npm-execspawn": "1.0.6",
-    "parallel-loop": "0.0.3",
     "pubsub": "1.0.2",
     "pump": "1.0.0",
     "right-pad": "0.0.0",
-    "steno": "0.3.2",
     "through2": "1.1.1",
+    "vinyl-source-stream": "1.1.0"
+  },
+  "devDependencies": {
+    "babel": "4.7.16",
+    "del": "1.1.1",
+    "fastparallel": "1.2.1",
+    "globby": "1.2.0",
+    "gulp-concat": "2.5.2",
+    "mocha": "2.2.1",
+    "parallel-loop": "0.0.3",
+    "steno": "0.3.2",
     "vinyl": "0.4.6",
     "vinyl-file": "1.1.1",
     "vinyl-fs": "1.0.0",
-    "vinyl-paths": "1.0.0",
-    "vinyl-source-stream": "1.1.0",
-    "vinyl-transform": "1.0.0"
-  },
-  "devDependencies": {
-    "babel": "4.7.16"
+    "vinyl-paths": "1.0.0"
   },
   "homepage": "https://github.com/RnbWd/chronic",
   "keywords": [
@@ -68,7 +58,7 @@
   },
   "repository": "RnbWd/chronic",
   "scripts": {
-    "test": "mocha",
-    "babel": "babel source --out-dir scripts"
+    "babel": "babel source --out-dir scripts",
+    "test": "mocha"
   }
 }
