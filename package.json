@@ -59,6 +59,6 @@
   "repository": "RnbWd/chronic",
   "scripts": {
     "babel": "babel source --out-dir scripts",
-    "test": "mocha"
+    "test": "mocha test.js"
   }
 }
