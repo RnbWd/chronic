@@ -157,7 +157,7 @@ $ node <filename> -l # or --list
 
 - ast-trees / transform plugin / code analysis bridges into the filesystem. This can all be done in gulp / webpack of course, but I want to find the right plugins and put them in where appropriate (I'm more of a tool finder than builder).
 
-- long term goal... build-system IDE - file system visualizer - npm repo gui / easy download config for all build systems - and to fully leverage these AST transforms being used by everyone to visually and interactively compose complex systems that currently resides in our short term memory and punctuation marks!
+- long term goal... build-system IDE - file system visualizer - npm repo gui / easy download config for all build systems - and to fully leverage these AST transforms being used by everyone to visually and interactively compose complex systems that currently resides in our short term memory.
 
 ## License
 
