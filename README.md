@@ -155,9 +155,9 @@ $ node <filename> -l # or --list
 
 > a crash friendly queue that persists queue state and can restart. uses a worker pool and has configurable concurrency
 
-- ast-trees / transform plugin / code analysis bridges into the filesystem. This can all be done in gulp / webpack of course, but I want to find the right plugins and put them in where appropriate (I more of a tool finder than builder).
+- ast-trees / transform plugin / code analysis bridges into the filesystem. This can all be done in gulp / webpack of course, but I want to find the right plugins and put them in where appropriate (I'm more of a tool finder than builder).
 
-- long term goal... build-system IDE - file system visualizer - npm repo gui / easy download config for all build systems - and to fully leverage these AST transforms being used everyone, visually, interactively, to compose these systems in the way they seem to be meant for - not in text editors with punctuation marks and {}. We'll still write code - but think about how much of that has to exist in short term memory!
+- long term goal... build-system IDE - file system visualizer - npm repo gui / easy download config for all build systems - and to fully leverage these AST transforms being used by everyone to visually and interactively compose complex systems that currently resides in our short term memory and punctuation marks!
 
 ## License
 
