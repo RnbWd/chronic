@@ -15,14 +15,21 @@ npm install chronic --save-dev
 
 ## Background
 
-My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. This library is now a heavily modified version of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). Rationale for this project can be found [here](https://github.com/rnbwd/chronic/blob/master/RATIONALE.md).
+My goal is to provide a balance between *configuration and customization* through the creation of *task-transducers*. This library is now a heavily modified version of azer's [bud](https://github.com/azer/bud) and gulp's [vinyl-fs](https://github.com/wearefractal/vinyl-fs). The original rationale for this project can be found [here](https://github.com/rnbwd/chronic/blob/master/RATIONALE.md).
 
-Please read the [CHANGELOG](https://github.com/rnbwd/chronic/blob/master/CHANGELOG.md)
+## Why did I put together this library?
 
-The API internals recently went through some final namespace orientation, which may result in breaking changes to current code, but the API is now stable.
+Most nodejs build systems and rely on large config files and isolated ecosystems. Webpack, Grunt, Duo (?), Browserify (?), Broccolli (?)... etc. etc. They all have thier own semantics about transforms vs loaders vs plugins and how they're integrated into their own systems. I began using Gulp as soon as I found out about it - the idea of 'piping  transform streams' sounds much more appealing than writing a config file. Soon after using gulp (and running into many errors), I realized that gulp was just a thin wrapper over 'vanilla' nodejs. After using the library for 3 months, I switched over to another task manager called [bud](https://github.com/azer/bud), running vinyl-fs under the hood (it powers the entire gulp ecosystem), and it just worked better, in every way. Apparently it was written on airplane ride 10 months ago (at the time of writing this), hasn't been touched since.
 
+So 6 months later I decided to go into the interals and figure out how he built this app in a few hours that's better than the task manager gulp's had out for over a year... and I noticed some *interesting* programming techniques I'd never seen before in javascript. So, first thing I noticed is that he wrote these functions designed to handle arbitrary parameters, but behave differently depending on the arguments. The main export of this library acts just like `gulp.task`, but also accepts params which happen to be methods of itself. All the internal objects are based from a library azer wrote called [new-struct](https://github.com/azer/new-struct), which is basically a bizarre class-structure inspired by Go.
+
+Another pattern I noticed was his use of proccesses (next-tick) / stdin / stdout to control the flow. He basically leveraged unix / shell to handle the tasks instead of designing his own complicated error-prone system purely in nodejs - but at the same time what he wrote *is purely nodejs*. Simple. Very few lines of code. And it's seamless to write command line functions interwined with your nodjes gulp plugins if you so choose. It all uses the same API. You don't have to choose between nodejs pipes and config files and command line - *you can have all three at the same time*.
+
+So why am I rewriting it (and not using gulp)? Gulp got one problem fundamentally wrong, and its this: **the task manager should be responsible for handling errors in the system** - gulp left that up to the users. Bud, on the other hand, it's just a tiny library that does one thing well (and it's good), but it's like a tool box without that many tools. I want to put as many useful tools in here as I can fit (the ones I use everyday, like vinyl-source-stream with browserify). Also, node pipes are notorious bad at error handling, so I included some 'fixes' to help with that. I'm currently rewriting the API in es6 (half the methods seem to be es6 hacks), but it'll be nice to have a standard to build on top of. Enjoy!!
 
 ## Usage
+
+Please read the [CHANGELOG](https://github.com/rnbwd/chronic/blob/master/CHANGELOG.md)
 
 ``` js
 var chron = require('chronic');
@@ -138,7 +145,19 @@ $ node <filename> -l # or --list
 
 ## TODO
 
-More examples and tests and stuff coming soon!!
+ - More examples and tests
+
+ - integrate some philosophy and modules from [folktale](http://docs.folktalejs.org/en/latest/index.html#) - specificially [data.task](https://github.com/folktale/data.task)
+
+> The Task(a, b) structure represents values that depend on time. This allows one to model time-based effects explicitly, such that one can have full knowledge of when they're dealing with delayed computations, latency, or anything that can not be computed immediately.
+
+- [maxogen/atomic-queue](https://github.com/maxogden/atomic-queue) to persist the state / order of tasks if it crashes
+
+> a crash friendly queue that persists queue state and can restart. uses a worker pool and has configurable concurrency
+
+- ast-trees / transform plugin / code analysis bridges into the filesystem. This can all be done in gulp / webpack of course, but I want to find the right plugins and put them in where appropriate (I more of a tool finder than builder).
+
+- long term goal... build-system IDE - file system visualizer - npm repo gui / easy download config for all build systems - and to fully leverage these AST transforms being used everyone, visually, interactively, to compose these systems in the way they seem to be meant for - not in text editors with punctuation marks and {}. We'll still write code - but think about how much of that has to exist in short term memory!
 
 ## License
 
