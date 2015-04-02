@@ -19,7 +19,7 @@ My goal is to provide a balance between *configuration and customization* throug
 
 ## Why did I put together this library?
 
-So why am I rewriting bud (and not using gulp)? Gulp got one problem fundamentally wrong, and its this: `gulp.src` and `gulp.watch` shouldn't exist inside task functions - **file IO, including watching, should be declared at the highest level possible in the system**.  Bud, on the other hand, it's just a tiny library that does one thing well (and it's good), but it's like a tool box without that many tools. I want to put as many useful tools in here as I can fit (the ones I use everyday, like vinyl-source-stream with browserify). Also, node pipes are notorious bad at error handling, so I included some 'fixes' to help with that. I'm currently rewriting the API in es6 (half the original methods seem to be es6 hacks), but it'll be nice to have a standard to build on top of. Enjoy!!
+So why not just use gulp? Gulp got one problem fundamentally wrong, and its this: `gulp.src` and `gulp.watch` shouldn't exist inside task functions - **file IO, including watching, should be declared at the highest level possible in the system**.  Bud, on the other hand, it's just a tiny library that does one thing well (and it's good), but it's like a tool box without that many tools. I want to put as many useful tools in here as I can fit (the ones I use everyday, like vinyl-source-stream with browserify). Also, node pipes are notorious bad at error handling, so I included some 'fixes' to help with that. I'm currently rewriting the API in es6 (half the original methods seem to be es6 hacks), but it'll be nice to have a standard to build on top of. Enjoy!!
 
 ## Usage
 
