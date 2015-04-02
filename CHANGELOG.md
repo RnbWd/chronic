@@ -1,5 +1,9 @@
 # Changelog
 
+##0.5.0-alpha.1
+
+Rewrote many of the interals of the library to be es6 friendly. Expecting to take advange of more new features soon for FAST - CONSISTENT - SIMPLE task manager.
+
 ## 0.4.2
 
 * Upgraded Chokidar
@@ -49,15 +53,15 @@
 
 * Updated Readme :)
 
-## 0.2.0 
+## 0.2.0
 
 [BREAKING CHANGES]
 
 * `t.exec` calls `t.done()` upon stream completion
-* All flags are passed down to `t.params`, and you can no longer pass down non-flagged params. 
-    - eg: `node <file> -w --bud=chronic --hello-world` --> `t.params == { watch: true, w: true, bud: 'chronic', helloWorld: true }`). 
+* All flags are passed down to `t.params`, and you can no longer pass down non-flagged params.
+    - eg: `node <file> -w --bud=chronic --hello-world` --> `t.params == { watch: true, w: true, bud: 'chronic', helloWorld: true }`).
 * `t.files` is no longer a function, it's used internally to watch files. Still returns array of files listed under chron.watch('..')
-* When watching files, tasks will not re-run unless they are explicitly finished. 
+* When watching files, tasks will not re-run unless they are explicitly finished.
     - eg: call `t.done()` or use helper functions like `t.build` or `chron.build`.
 * `chron.after` && `chron.follow` are synonyms for `chron.once` (optional)
 * Following modules were replaced (but should have minimal impact on usage):

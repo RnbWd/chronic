@@ -1,7 +1,7 @@
 {
   "name": "chronic",
   "description": "vinyl-task-transducers",
-  "version": "0.5.0-alpha",
+  "version": "0.5.0-alpha.1",
   "author": "RnbWd",
   "bin": "./bin/chron",
   "bugs": {
