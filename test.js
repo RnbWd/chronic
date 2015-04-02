@@ -46,7 +46,7 @@ describe('tasks', function() {
     })
 
     chron('concat', chron.after('del')
-      .watch('./fake-folder/one/*.js', './fake-folder/two/*.js'), 
+      .watch('./fake-folder/one/*.js', './fake-folder/two/*.js'),
       ctask)
 
     chron('bundle', chron.after('concat')
@@ -55,7 +55,7 @@ describe('tasks', function() {
       bundle).run()
 
     function bundle(t) {
-      pump(t.src(t.files[0]), t.dest(), function(err) {
+      pump(t.src(t.files[0].toString()), t.dest(), function(err) {
         t.done();
         done(err);
       });
@@ -64,10 +64,10 @@ describe('tasks', function() {
 
     function ctask(t) {
       t.build(t.src(t.watching), concat('bud.js'), t.dest('./fake-folder/chronic'));
-      assert.deepEqual(t.watching, ['./fake-folder/one/*.js', './fake-folder/two/*.js']); 
+      assert.deepEqual(t.watching, ['./fake-folder/one/*.js', './fake-folder/two/*.js']);
     }
 
-    
+
   });
 
   it('should run a task with options', function (done) {
@@ -143,7 +143,7 @@ describe('tasks', function() {
   });
 });
 
-  
+
 
 
 
