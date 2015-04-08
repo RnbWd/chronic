@@ -1,7 +1,7 @@
 {
   "name": "chronic",
   "description": "vinyl-task-transducers",
-  "version": "0.5.0-alpha.1",
+  "version": "0.5.0-alpha.2",
   "author": "RnbWd",
   "bin": "./bin/chron",
   "bugs": {
@@ -10,13 +10,13 @@
   "dependencies": {
     "byline": "4.2.1",
     "chalk": "1.0.0",
-    "chokidar": "1.0.0-rc6",
+    "chokidar": "1.0.0",
     "each-async": "1.1.1",
     "end-of-stream": "1.1.0",
     "format-text": "0.0.3",
     "meow": "3.1.0",
     "new-struct": "0.1.1",
-    "npm-execspawn": "1.0.6",
+    "npm-execspawn": "1.2.0",
     "pubsub": "1.0.2",
     "pump": "1.0.0",
     "right-pad": "0.0.0",
@@ -24,12 +24,12 @@
     "vinyl-source-stream": "1.1.0"
   },
   "devDependencies": {
-    "babel": "4.7.16",
+    "babel": "5.0.10",
     "del": "1.1.1",
     "fastparallel": "1.2.1",
-    "globby": "1.2.0",
+    "globby": "2.0.0",
     "gulp-concat": "2.5.2",
-    "mocha": "2.2.1",
+    "mocha": "2.2.4",
     "parallel-loop": "0.0.3",
     "steno": "0.3.2",
     "vinyl": "0.4.6",
