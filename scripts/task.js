@@ -1,28 +1,21 @@
-"use strict";
+'use strict';
 
-var _chalk = require("chalk");
+var _red$green$cyan$magenta$yellow$white$grey = require('chalk');
 
-var red = _chalk.red;
-var green = _chalk.green;
-var cyan = _chalk.cyan;
-var magenta = _chalk.magenta;
-var yellow = _chalk.yellow;
-var white = _chalk.white;
-var grey = _chalk.grey;
-
-var Struct = require("new-struct");
-var vinyl = require("vinyl-fs");
-var source = require("vinyl-source-stream");
-var pump = require("pump");
-var eos = require("end-of-stream");
-var through = require("through2");
-var chokidar = require("chokidar");
-var format = require("format-text");
-var rightpad = require("right-pad");
-var Options = require("./options");
-var map = require("./map");
-var run = require("./run");
-var exec = require("./exec");
+var Struct = require('new-struct');
+var vinyl = require('vinyl-fs');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var pump = require('pump');
+var eos = require('end-of-stream');
+var through = require('through2');
+var chokidar = require('chokidar');
+var format = require('format-text');
+var rightpad = require('right-pad');
+var Options = require('./options');
+var map = require('./map');
+var run = require('./run');
+var exec = require('./exec');
 
 var Task = Struct({
   New: New,
@@ -35,12 +28,12 @@ var Task = Struct({
   dest: dest
 });
 
-var colors = [red, green, cyan, magenta, yellow];
+var colors = [_red$green$cyan$magenta$yellow$white$grey.red, _red$green$cyan$magenta$yellow$white$grey.green, _red$green$cyan$magenta$yellow$white$grey.cyan, _red$green$cyan$magenta$yellow$white$grey.magenta, _red$green$cyan$magenta$yellow$white$grey.yellow];
 
 module.exports = Task;
 
 function New(name, options, fn) {
-  if (arguments.length === 2 && typeof options === "function") {
+  if (arguments.length === 2 && typeof options === 'function') {
     fn = options;
     options = Options.New();
   }
@@ -62,7 +55,8 @@ function New(name, options, fn) {
     info: info,
     pump: pump,
     eos: eos,
-    source: source
+    source: source,
+    buffer: buffer
   }));
 
   stdout();
@@ -99,7 +93,7 @@ function std(task, callback) {
 function done(task, err) {
   var diff = Date.now() - task.startTS;
 
-  task.info(task, "Completed in {0}", humanize(diff));
+  task.info(task, 'Completed in {0}', humanize(diff));
   if (err) console.warn(err);
   task.onDone.publish();
 
@@ -112,11 +106,11 @@ function watch(task) {
   if (!task.watching) {
     return;
   }var watcher = chokidar.watch(task.watching, { persistent: true, interval: 250 });
-  console.log("  " + white("watching: ") + cyan(task.key));
+  console.log('  ' + _red$green$cyan$magenta$yellow$white$grey.white('watching: ') + _red$green$cyan$magenta$yellow$white$grey.cyan(task.key));
 
-  watcher.on("change", function (path) {
+  watcher.on('change', function (path) {
     if (!task.running) {
-      console.log("  " + white("changed: ") + cyan(path));
+      console.log('  ' + _red$green$cyan$magenta$yellow$white$grey.white('changed: ') + _red$green$cyan$magenta$yellow$white$grey.cyan(path));
       task.run(false, true);
     }
   });
@@ -151,24 +145,24 @@ function dest(task, path) {
 }
 
 function info(task) {
-  for (var _len = arguments.length, infos = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    infos[_key - 1] = arguments[_key];
+  for (var _len2 = arguments.length, infos = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+    infos[_key2 - 1] = arguments[_key2];
   }
 
   var key = rightpad(task.key, map.len);
 
   var text = format.apply(undefined, infos);
-  console.log("   " + task.color(key) + "   " + grey(text));
+  console.log('   ' + task.color(key) + '   ' + _red$green$cyan$magenta$yellow$white$grey.grey(text));
 }
 
 function beautify(task, line) {
   var key = rightpad(task.key, map.len);
 
-  return "  " + task.color(key) + "  " + grey(String(line)) + "\n";
+  return '  ' + task.color(key) + '  ' + _red$green$cyan$magenta$yellow$white$grey.grey(String(line)) + '\n';
 }
 
 function nextColor() {
-  if (typeof colors.next === "undefined") {
+  if (typeof colors.next === 'undefined') {
     colors.next = 0;
   } else {
     colors.next++;
@@ -182,10 +176,10 @@ function humanize(ms) {
   var hour = 60 * min;
 
   if (ms >= hour) {
-    return (ms / hour).toFixed(1) + "h";
+    return (ms / hour).toFixed(1) + 'h';
   }if (ms >= min) {
-    return (ms / min).toFixed(1) + "m";
+    return (ms / min).toFixed(1) + 'm';
   }if (ms >= sec) {
-    return (ms / sec | 0) + "s";
-  }return ms + "ms";
+    return (ms / sec | 0) + 's';
+  }return ms + 'ms';
 }

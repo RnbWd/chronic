@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-var pubsub = require("pubsub");
-var each = require("each-async");
-var map = require("./map");
+var pubsub = require('pubsub');
+var each = require('each-async');
+var map = require('./map');
 
 module.exports = run;
 
@@ -15,17 +15,17 @@ function killRunningProcesses(task) {
 }
 
 function run(task, watch, res, cb) {
-  if (typeof watch === "function") {
+  if (typeof watch === 'function') {
     cb = watch;
     watch = undefined;
   }
 
-  if (typeof res === "function") {
+  if (typeof res === 'function') {
     cb = res;
     res = undefined;
   }
 
-  task.info(task, "Running...");
+  task.info(task, 'Running...');
   task.startTS = Date.now();
   task.running = true;
 

@@ -1,37 +1,50 @@
-"use strict";
+'use strict';
 
-var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
+var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 
-var format = _interopRequire(require("format-text"));
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 
-var execspawn = _interopRequire(require("npm-execspawn"));
+var _format = require('format-text');
 
-var eos = _interopRequire(require("end-of-stream"));
+var _format2 = _interopRequireWildcard(_format);
 
-var byline = _interopRequire(require("byline"));
+var _execspawn = require('npm-execspawn');
 
-var red = require("chalk").red;
+var _execspawn2 = _interopRequireWildcard(_execspawn);
 
-module.exports = exec;
+var _eos = require('end-of-stream');
+
+var _eos2 = _interopRequireWildcard(_eos);
+
+var _byline = require('byline');
+
+var _byline2 = _interopRequireWildcard(_byline);
+
+var _red = require('chalk');
+
+exports['default'] = exec;
 
 function exec(task, cmd) {
-  if (!cmd || typeof cmd !== "string") {
+  if (!cmd || typeof cmd !== 'string') {
     return task.done();
-  }var formatted = format.apply(undefined, Array.prototype.slice.call(arguments, 1));
+  }var formatted = _format2['default'].apply(undefined, Array.prototype.slice.call(arguments, 1));
 
-  task.info(task, "Executing \"{0}\"", formatted);
+  task.info(task, 'Executing "{0}"', formatted);
 
-  var child = execspawn(formatted);
+  var child = _execspawn2['default'](formatted);
 
   task.processes.push(child);
 
-  byline(child.stdout).pipe(task.stdout);
-  byline(child.stderr).pipe(task.stderr);
+  _byline2['default'](child.stdout).pipe(task.stdout);
+  _byline2['default'](child.stderr).pipe(task.stderr);
 
-  eos(child, function (err) {
-    if (err) return console.error(red("    Error:") + " Failed to run %s: %s", formatted, err.toString());
+  _eos2['default'](child, function (err) {
+    if (err) return console.error(_red.red('    Error:') + ' Failed to run %s: %s', formatted, err.toString());
     task.done();
   });
 
   return child.stdout;
 }
+module.exports = exports['default'];

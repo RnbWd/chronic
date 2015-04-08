@@ -1,10 +1,16 @@
-"use strict";
+'use strict';
 
-var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
+var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 
-var Struct = _interopRequire(require("new-struct"));
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 
-var Options = Struct({
+var _Struct = require('new-struct');
+
+var _Struct2 = _interopRequireWildcard(_Struct);
+
+var Options = _Struct2['default']({
   New: New,
   after: after,
   source: source,
@@ -13,7 +19,7 @@ var Options = Struct({
   transform: transform
 });
 
-module.exports = Options;
+exports['default'] = Options;
 
 function New(obj) {
   return Options({
@@ -35,8 +41,8 @@ function after(options) {
 }
 
 function source(options) {
-  for (var _len = arguments.length, source = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    source[_key - 1] = arguments[_key];
+  for (var _len2 = arguments.length, source = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+    source[_key2 - 1] = arguments[_key2];
   }
 
   options._source = source;
@@ -44,8 +50,8 @@ function source(options) {
 }
 
 function watch(options) {
-  for (var _len = arguments.length, watch = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    watch[_key - 1] = arguments[_key];
+  for (var _len3 = arguments.length, watch = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+    watch[_key3 - 1] = arguments[_key3];
   }
 
   options._watch = watch;
@@ -58,10 +64,11 @@ function dest(options, dest) {
 }
 
 function transform(options) {
-  for (var _len = arguments.length, transform = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    transform[_key - 1] = arguments[_key];
+  for (var _len4 = arguments.length, transform = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+    transform[_key4 - 1] = arguments[_key4];
   }
 
   options._transform = transform;
   return options;
 }
+module.exports = exports['default'];

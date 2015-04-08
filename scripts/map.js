@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var tasks = {};
 
@@ -12,7 +12,7 @@ module.exports = {
 };
 
 function slug(title) {
-  return title.replace(/\s/g, "-");
+  return title.replace(/\s/g, '-');
 }
 
 function get(name) {
