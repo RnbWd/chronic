@@ -1,8 +1,8 @@
-var Task = require('./lib/task')
-var Options = require('./lib/options')
+var Task = require('./scripts/task')
+var Options = require('./scripts/options')
 
 process.nextTick(function () {
-  require('./lib/cli')
+  require('./scripts/cli')
 })
 
 module.exports = create
