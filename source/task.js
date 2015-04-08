@@ -3,6 +3,7 @@ import {red, green, cyan, magenta, yellow, white, grey} from 'chalk';
 let Struct = require('new-struct')
 let vinyl = require('vinyl-fs')
 let source = require('vinyl-source-stream')
+let buffer = require('vinyl-buffer')
 let pump = require('pump')
 let eos = require('end-of-stream')
 let through = require('through2')
@@ -58,7 +59,8 @@ function New (name, options, fn) {
     info: info,
     pump: pump,
     eos: eos,
-    source: source
+    source: source,
+    buffer: buffer
   }))
 
   stdout()
