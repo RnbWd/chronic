@@ -10,7 +10,7 @@
   "dependencies": {
     "byline": "4.2.1",
     "chalk": "1.0.0",
-    "chokidar": "1.0.0",
+    "chokidar": "^1.0.1",
     "each-async": "1.1.1",
     "end-of-stream": "1.1.0",
     "format-text": "0.0.3",
@@ -26,10 +26,7 @@
     "vinyl-source-stream": "1.1.0"
   },
   "devDependencies": {
-    "babel": "^5.0.12",
-    "del": "1.1.1",
-    "fastparallel": "1.2.1",
-    "globby": "2.0.0",
+    "fastparallel": "^1.5.0",
     "gulp-concat": "2.5.2",
     "mocha": "2.2.4",
     "parallel-loop": "0.0.3",
