@@ -26,7 +26,7 @@
     "vinyl-source-stream": "1.1.0"
   },
   "devDependencies": {
-    "babel": "5.0.10",
+    "babel": "^5.0.12",
     "del": "1.1.1",
     "fastparallel": "1.2.1",
     "globby": "2.0.0",
@@ -60,6 +60,6 @@
   "repository": "RnbWd/chronic",
   "scripts": {
     "babel": "babel source --out-dir scripts",
-    "test": "mocha test.js"
+    "test": "mocha"
   }
 }
