@@ -26,6 +26,7 @@
     "vinyl-source-stream": "1.1.0"
   },
   "devDependencies": {
+    "del": "^1.1.1",
     "fastparallel": "^1.5.0",
     "gulp-concat": "2.5.2",
     "mocha": "2.2.4",
@@ -56,7 +57,7 @@
   },
   "repository": "RnbWd/chronic",
   "scripts": {
-    "babel": "babel source --out-dir scripts",
+    "build": "babel src --out-dir build",
     "test": "mocha"
   }
 }

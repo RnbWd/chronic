@@ -1,6 +1,11 @@
 # Changelog
 
-##0.5.0-alpha.1
+## 1.0.0-alpha.1 [MAJOR BREAKING CHANGES]
+
+* Remove `build` and `transform` methods
+
+
+## 0.5.0-alpha.1
 
 Rewrote many of the interals of the library to be es6 friendly. Expecting to take advange of more new features soon for FAST - CONSISTENT - SIMPLE task manager.
 

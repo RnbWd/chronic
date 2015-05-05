@@ -1,22 +1,21 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _Struct = require('new-struct');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _Struct2 = _interopRequireWildcard(_Struct);
+var _newStruct = require('new-struct');
 
-var Options = _Struct2['default']({
+var _newStruct2 = _interopRequireDefault(_newStruct);
+
+var Options = _newStruct2['default']({
   New: New,
   after: after,
   source: source,
   watch: watch,
-  dest: dest,
-  transform: transform
+  dest: dest
 });
 
 exports['default'] = Options;
@@ -26,8 +25,7 @@ function New(obj) {
     _after: obj && obj.after || undefined,
     _source: obj && obj.source || undefined,
     _watch: obj && obj.watch || undefined,
-    _dest: obj && obj.dest || undefined,
-    _transform: obj && obj.transform || undefined
+    _dest: obj && obj.dest || undefined
   });
 }
 
@@ -60,15 +58,6 @@ function watch(options) {
 
 function dest(options, dest) {
   options._dest = dest;
-  return options;
-}
-
-function transform(options) {
-  for (var _len4 = arguments.length, transform = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-    transform[_key4 - 1] = arguments[_key4];
-  }
-
-  options._transform = transform;
   return options;
 }
 module.exports = exports['default'];

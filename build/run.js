@@ -47,9 +47,9 @@ function callTaskFn(task, watch, res, cb) {
     delete task.onDone;
   }
 
-  if (task.onDone) {
-    return task.onDone.subscribe(cb);
-  }task.onDone = pubsub();
+  if (task.onDone) return task.onDone.subscribe(cb);
+
+  task.onDone = pubsub();
   task.onDone.subscribe(cb);
 
   if (watch) {
@@ -64,9 +64,9 @@ function callTaskFn(task, watch, res, cb) {
 }
 
 function runDependentsFirst(task, res, cb) {
-  if (!task.options._after || !task.options._after.length) {
-    return cb();
-  }each(task.options._after, function (item, index, done) {
+  if (!task.options._after || !task.options._after.length) return cb();
+
+  each(task.options._after, function (item, index, done) {
     var t = map.get(item);
     if (!t) return done();
     if (t.running) return done();

@@ -1,17 +1,15 @@
-var Task = require('./scripts/task')
-var Options = require('./scripts/options')
+var Task = require('./build/task')
+var Options = require('./build/options')
 
 process.nextTick(function () {
-  require('./scripts/cli')
+  require('./build/cli')
 })
 
 module.exports = create
 module.exports.after = after
 module.exports.source = source
 module.exports.watch = watch
-module.exports.transform = transform
 module.exports.dest = dest
-module.exports.build = build
 
 function create () {
   return Task.New.apply(undefined, arguments)
@@ -35,23 +33,8 @@ function watch () {
   })
 }
 
-function transform () {
-  return Options.New({
-    transform: Array.prototype.slice.call(arguments)
-  })
-}
-
 function dest () {
   return Options.New({
     dest: Array.prototype.slice.call(arguments)
   })
-}
-
-function build (t) {
-  var transforms = t.options._transform || []
-  var list = []
-  list.push(t.src())
-  list = list.concat(transforms)
-  list.push(t.dest())
-  t.pump(list, t.done)
 }

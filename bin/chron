@@ -3,13 +3,13 @@
 var fs = require("fs");
 var path = require('path');
 
-var localCLI = path.join(process.cwd(), './node_modules/bud/scripts/cli.js');
+var localCLI = path.join(process.cwd(), './node_modules/bud/build/cli.js');
 
 if (fs.existsSync(localCLI)) {
   return require(localCLI);
 }
 
-require('../scripts/cli');
+require('../build/cli');
 
 
 

@@ -5,8 +5,7 @@ let Options = Struct({
   after: after,
   source: source,
   watch: watch,
-  dest: dest,
-  transform: transform
+  dest: dest
 })
 
 export default Options
@@ -16,8 +15,7 @@ function New (obj) {
     _after: obj && obj.after || undefined,
     _source: obj && obj.source || undefined,
     _watch: obj && obj.watch || undefined,
-    _dest: obj && obj.dest || undefined,
-    _transform: obj && obj.transform || undefined
+    _dest: obj && obj.dest || undefined
   })
 }
 
@@ -38,10 +36,5 @@ function watch (options, ...watch) {
 
 function dest (options, dest) {
   options._dest = dest
-  return options
-}
-
-function transform (options, ...transform) {
-  options._transform = transform
   return options
 }

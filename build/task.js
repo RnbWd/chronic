@@ -1,6 +1,6 @@
 'use strict';
 
-var _red$green$cyan$magenta$yellow$white$grey = require('chalk');
+var _chalk = require('chalk');
 
 var Struct = require('new-struct');
 var vinyl = require('vinyl-fs');
@@ -28,7 +28,7 @@ var Task = Struct({
   dest: dest
 });
 
-var colors = [_red$green$cyan$magenta$yellow$white$grey.red, _red$green$cyan$magenta$yellow$white$grey.green, _red$green$cyan$magenta$yellow$white$grey.cyan, _red$green$cyan$magenta$yellow$white$grey.magenta, _red$green$cyan$magenta$yellow$white$grey.yellow];
+var colors = [_chalk.red, _chalk.green, _chalk.cyan, _chalk.magenta, _chalk.yellow];
 
 module.exports = Task;
 
@@ -103,14 +103,14 @@ function done(task, err) {
 }
 
 function watch(task) {
-  if (!task.watching) {
-    return;
-  }var watcher = chokidar.watch(task.watching, { persistent: true, interval: 250 });
-  console.log('  ' + _red$green$cyan$magenta$yellow$white$grey.white('watching: ') + _red$green$cyan$magenta$yellow$white$grey.cyan(task.key));
+  if (!task.watching) return;
+
+  var watcher = chokidar.watch(task.watching, { persistent: true, interval: 250 });
+  console.log('  ' + _chalk.white('watching: ') + _chalk.cyan(task.key));
 
   watcher.on('change', function (path) {
     if (!task.running) {
-      console.log('  ' + _red$green$cyan$magenta$yellow$white$grey.white('changed: ') + _red$green$cyan$magenta$yellow$white$grey.cyan(path));
+      console.log('  ' + _chalk.white('changed: ') + _chalk.cyan(path));
       task.run(false, true);
     }
   });
@@ -152,13 +152,13 @@ function info(task) {
   var key = rightpad(task.key, map.len);
 
   var text = format.apply(undefined, infos);
-  console.log('   ' + task.color(key) + '   ' + _red$green$cyan$magenta$yellow$white$grey.grey(text));
+  console.log('   ' + task.color(key) + '   ' + _chalk.grey(text));
 }
 
 function beautify(task, line) {
   var key = rightpad(task.key, map.len);
 
-  return '  ' + task.color(key) + '  ' + _red$green$cyan$magenta$yellow$white$grey.grey(String(line)) + '\n';
+  return '  ' + task.color(key) + '  ' + _chalk.grey(String(line)) + '\n';
 }
 
 function nextColor() {
@@ -175,11 +175,9 @@ function humanize(ms) {
   var min = 60 * 1000;
   var hour = 60 * min;
 
-  if (ms >= hour) {
-    return (ms / hour).toFixed(1) + 'h';
-  }if (ms >= min) {
-    return (ms / min).toFixed(1) + 'm';
-  }if (ms >= sec) {
-    return (ms / sec | 0) + 's';
-  }return ms + 'ms';
+  if (ms >= hour) return (ms / hour).toFixed(1) + 'h';
+  if (ms >= min) return (ms / min).toFixed(1) + 'm';
+  if (ms >= sec) return (ms / sec | 0) + 's';
+
+  return ms + 'ms';
 }
