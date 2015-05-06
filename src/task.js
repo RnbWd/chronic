@@ -1,19 +1,18 @@
 import {red, green, cyan, magenta, yellow, white, grey} from 'chalk';
 
-let Struct = require('new-struct')
-let vinyl = require('vinyl-fs')
-let source = require('vinyl-source-stream')
-let buffer = require('vinyl-buffer')
-let pump = require('pump')
-let eos = require('end-of-stream')
-let through = require('through2')
-let chokidar = require('chokidar')
-let format = require('format-text')
-let rightpad = require('right-pad')
-let Options = require('./options')
-let map = require('./map')
-let run = require('./run')
-let exec = require('./exec')
+const Struct = require('new-struct')
+const vinyl = require('vinyl-fs')
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
+const pump = require('pump')
+const eos = require('end-of-stream')
+const through = require('through2')
+const chokidar = require('chokidar')
+const rightpad = require('right-pad')
+const Options = require('./options')
+const map = require('./map')
+const run = require('./run')
+const exec = require('./exec')
 
 var Task = Struct({
   New: New,
@@ -37,7 +36,7 @@ var colors = [
 module.exports = Task
 
 function New (name, options, fn) {
-  if (arguments.length === 2 && typeof options === 'function') {
+  if (fn == undefined && typeof options === 'function') {
     fn = options
     options = Options.New()
   }
@@ -63,27 +62,27 @@ function New (name, options, fn) {
     buffer: buffer
   }))
 
-  stdout()
-  stderr()
+  stdout();
+  stderr();
 
   return task
 
   function stdout () {
     if (task.stdout) {
-      task.stdout.destroy()
+      task.stdout.destroy();
     }
 
-    task.stdout = std(task, stdout)
-    task.stdout.pipe(process.stdout).setMaxListeners(0)
+    task.stdout = std(task, stdout);
+    task.stdout.pipe(process.stdout).setMaxListeners(0);
   }
 
   function stderr () {
     if (task.stderr) {
-      task.stderr.destroy()
+      task.stderr.destroy();
     }
 
-    task.stderr = std(task, stderr)
-    task.stderr.pipe(process.stderr).setMaxListeners(0)
+    task.stderr = std(task, stderr);
+    task.stderr.pipe(process.stderr).setMaxListeners(0);
   }
 }
 
@@ -97,7 +96,7 @@ function std (task, callback) {
 function done (task, err) {
   var diff = Date.now() - task.startTS
 
-  task.info(task, 'Completed in {0}', humanize(diff))
+  task.info(task, `Completed in ${humanize(diff)}`)
   if (err) console.warn(err)
   task.onDone.publish()
 
@@ -144,10 +143,8 @@ function dest (task, path) {
   }
 }
 
-function info (task, ...infos) {
+function info (task, text) {
   var key = rightpad(task.key, map.len)
-
-  var text = format.apply(undefined, infos)
   console.log(`   ${task.color(key)}   ${grey(text)}`)
 }
 

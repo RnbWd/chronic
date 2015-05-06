@@ -1,6 +1,6 @@
-let pubsub = require('pubsub')
-let each = require('each-async')
-let map = require('./map')
+const pubsub = require('pubsub')
+const each = require('each-async')
+const map = require('./map')
 
 module.exports = run
 

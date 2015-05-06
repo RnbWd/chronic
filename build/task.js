@@ -10,7 +10,6 @@ var pump = require('pump');
 var eos = require('end-of-stream');
 var through = require('through2');
 var chokidar = require('chokidar');
-var format = require('format-text');
 var rightpad = require('right-pad');
 var Options = require('./options');
 var map = require('./map');
@@ -33,7 +32,7 @@ var colors = [_chalk.red, _chalk.green, _chalk.cyan, _chalk.magenta, _chalk.yell
 module.exports = Task;
 
 function New(name, options, fn) {
-  if (arguments.length === 2 && typeof options === 'function') {
+  if (fn == undefined && typeof options === 'function') {
     fn = options;
     options = Options.New();
   }
@@ -93,7 +92,7 @@ function std(task, callback) {
 function done(task, err) {
   var diff = Date.now() - task.startTS;
 
-  task.info(task, 'Completed in {0}', humanize(diff));
+  task.info(task, 'Completed in ' + humanize(diff));
   if (err) console.warn(err);
   task.onDone.publish();
 
@@ -144,14 +143,8 @@ function dest(task, path) {
   }
 }
 
-function info(task) {
-  for (var _len2 = arguments.length, infos = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-    infos[_key2 - 1] = arguments[_key2];
-  }
-
+function info(task, text) {
   var key = rightpad(task.key, map.len);
-
-  var text = format.apply(undefined, infos);
   console.log('   ' + task.color(key) + '   ' + _chalk.grey(text));
 }
 

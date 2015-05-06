@@ -1,4 +1,3 @@
-// import format from 'format-text'
 const execspawn = require('npm-execspawn');
 const eos = require('end-of-stream');
 const byline = require('byline');
@@ -8,8 +7,6 @@ module.exports = exec;
 
 function exec (task, cmd) {
   if (!cmd || typeof cmd !== 'string') return task.done()
-
-  // var formatted = format.apply(undefined, Array.prototype.slice.call(arguments, 1))
 
   task.info(task, `Executing ${task}`);
 

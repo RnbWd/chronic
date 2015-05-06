@@ -1,8 +1,8 @@
 import {green, white, cyan, bold, white, grey, green} from 'chalk'
-import meow from 'meow'
-import map from './map'
+const meow = require('meow');
+const map = require('./map');
 
-let help = `
+const help = `
   ${green('Usage')} \n
   ${white('  node <filename> ')} ${cyan('<tasks> ')} ${bold('<params>')}\n
   ${bold('  -h --help  ')} + ${white('- displays instructions')}
@@ -10,7 +10,7 @@ let help = `
   ${bold('  -w --watch ')} + ${white('- watches files')}
 `
 
-let cmd = meow({
+const cmd = meow({
     pkg: '../package.json',
     help: help
 }, { alias: {h: 'help', v: 'version', l: 'list', w: 'watch'},
