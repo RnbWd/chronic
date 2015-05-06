@@ -15,22 +15,22 @@ const run = require('./run')
 const exec = require('./exec')
 
 var Task = Struct({
-  New: New,
-  done: done,
-  run: run,
-  watch: watch,
-  exec: exec,
-  build: build,
-  src: src,
-  dest: dest
+	New: New,
+	done: done,
+	run: run,
+	watch: watch,
+	exec: exec,
+	build: build,
+	src: src,
+	dest: dest
 })
 
 var colors = [
-  red,
-  green,
-  cyan,
-  magenta,
-  yellow
+	red,
+	green,
+	cyan,
+	magenta,
+	yellow
 ]
 
 module.exports = Task
@@ -42,25 +42,24 @@ function New (name, options, fn) {
   }
 
   var task = map.set(name, Task({
-    name: name,
-    key: map.slug(name),
-    options: options,
-    path: options._dest,
-    files: options._source,
-    src: src,
-    dest: dest,
-    fn: fn,
-    build: build,
-    done: done,
-    color: nextColor(),
-    processes: [],
-    params: {},
-    info: info,
-    pump: pump,
-    eos: eos,
-    source: source,
-    buffer: buffer
-  }))
+		name: name,
+		key: map.slug(name),
+		options: options,
+		path: options._dest,
+		files: options._source,
+		src: src,
+		dest: dest,
+		fn: fn,
+		build: build,
+		done: done,
+		color: nextColor(),
+		params: {},
+		info: info,
+		pump: pump,
+		eos: eos,
+		source: source,
+		buffer: buffer
+	}))
 
   stdout();
   stderr();
@@ -71,7 +70,6 @@ function New (name, options, fn) {
     if (task.stdout) {
       task.stdout.destroy();
     }
-
     task.stdout = std(task, stdout);
     task.stdout.pipe(process.stdout).setMaxListeners(0);
   }
@@ -95,7 +93,6 @@ function std (task, callback) {
 
 function done (task, err) {
   var diff = Date.now() - task.startTS
-
   task.info(task, `Completed in ${humanize(diff)}`)
   if (err) console.warn(err)
   task.onDone.publish()
@@ -122,25 +119,17 @@ function watch (task) {
 }
 
 function build (task, ...items) {
-  return pump(items, function (err) {
-    task.done(err)
+  return pump(items, (err) => {
+    task.done(err);
   })
 }
 
 function src (task, path) {
-  if (path) {
-    return vinyl.src(path)
-  } else if (task.files) {
-    return vinyl.src(task.files)
-  }
+  return vinyl.src(path || task.files)
 }
 
-function dest (task, path) {
-  if (path) {
-    return vinyl.dest(path)
-  } else if (task.path) {
-    return vinyl.dest(task.path)
-  }
+function dest(task, path) {
+  return vinyl.dest(path || task.path);
 }
 
 function info (task, text) {
@@ -150,7 +139,6 @@ function info (task, text) {
 
 function beautify (task, line) {
   var key = rightpad(task.key, map.len)
-
   return '  ' + task.color(key) + '  ' + grey(String(line)) + '\n'
 }
 

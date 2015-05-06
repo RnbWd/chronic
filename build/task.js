@@ -49,7 +49,6 @@ function New(name, options, fn) {
     build: build,
     done: done,
     color: nextColor(),
-    processes: [],
     params: {},
     info: info,
     pump: pump,
@@ -67,7 +66,6 @@ function New(name, options, fn) {
     if (task.stdout) {
       task.stdout.destroy();
     }
-
     task.stdout = std(task, stdout);
     task.stdout.pipe(process.stdout).setMaxListeners(0);
   }
@@ -91,7 +89,6 @@ function std(task, callback) {
 
 function done(task, err) {
   var diff = Date.now() - task.startTS;
-
   task.info(task, 'Completed in ' + humanize(diff));
   if (err) console.warn(err);
   task.onDone.publish();
@@ -128,14 +125,12 @@ function build(task) {
 }
 
 function src(task, path) {
-  if (path) {
-    return vinyl.src(path);
-  } else if (task.files) {
-    return vinyl.src(task.files);
-  }
+  return vinyl.src(path || task.files);
 }
 
-const dest = (task, path) => vinyl.dest(path || task.path);
+function dest(task, path) {
+  return vinyl.dest(path || task.path);
+}
 
 function info(task, text) {
   var key = rightpad(task.key, map.len);
@@ -144,7 +139,6 @@ function info(task, text) {
 
 function beautify(task, line) {
   var key = rightpad(task.key, map.len);
-
   return '  ' + task.color(key) + '  ' + _chalk.grey(String(line)) + '\n';
 }
 

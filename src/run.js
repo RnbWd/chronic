@@ -4,14 +4,6 @@ const map = require('./map')
 
 module.exports = run
 
-function killRunningProcesses (task) {
-  task.processes.forEach(function (proc) {
-    proc.kill()
-  })
-
-  task.processes = []
-}
-
 function run (task, watch, res, cb) {
   if (typeof watch === 'function') {
     cb = watch
@@ -26,8 +18,6 @@ function run (task, watch, res, cb) {
   task.info(task, 'Running...')
   task.startTS = Date.now()
   task.running = true
-
-  killRunningProcesses(task)
 
   runDependentsFirst(task, res, function (error) {
     if (error) return cb(error)
