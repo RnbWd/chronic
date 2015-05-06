@@ -1,5 +1,5 @@
 const pubsub = require('pubsub')
-const each = require('each-async')
+const parallel = require('fastparallel')({ results: false });
 const map = require('./map')
 
 module.exports = run
@@ -55,13 +55,15 @@ function callTaskFn (task, watch, res, cb) {
 function runDependentsFirst (task, res, cb) {
   if (!task.options._after || !task.options._after.length) return cb()
 
-  each(task.options._after, function (item, index, done) {
+  parallel({}, runItem, task.options._after, cb)
+
+  function runItem (item, done) {
     var t = map.get(item)
     if (!t) return done()
     if (t.running) return done()
     t.params = task.params
     t.run(false, res, done)
-  }, cb)
+  }
 }
 
 function flattenFiles (task) {
