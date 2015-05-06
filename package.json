@@ -58,6 +58,7 @@
   "repository": "RnbWd/chronic",
   "scripts": {
     "build": "babel src --out-dir build",
+    "watch": "babel src --out-dir build -w",
     "test": "mocha"
   }
 }

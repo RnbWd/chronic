@@ -1,19 +1,19 @@
-import format from 'format-text'
-import execspawn from 'npm-execspawn'
-import eos from 'end-of-stream'
-import byline from 'byline'
+// import format from 'format-text'
+const execspawn = require('npm-execspawn');
+const eos = require('end-of-stream');
+const byline = require('byline');
 import {red} from 'chalk';
 
-export default exec
+module.exports = exec;
 
 function exec (task, cmd) {
   if (!cmd || typeof cmd !== 'string') return task.done()
 
-  var formatted = format.apply(undefined, Array.prototype.slice.call(arguments, 1))
+  // var formatted = format.apply(undefined, Array.prototype.slice.call(arguments, 1))
 
-  task.info(task, 'Executing "{0}"', formatted)
+  task.info(task, `Executing ${task}`);
 
-  var child = execspawn(formatted)
+  var child = execspawn(cmd)
 
   task.processes.push(child)
 
@@ -21,7 +21,7 @@ function exec (task, cmd) {
   byline(child.stderr).pipe(task.stderr)
 
   eos(child, function (err) {
-    if (err) return console.error(red('    Error:') + ' Failed to run %s: %s', formatted, err.toString())
+    if (err) return console.error(red('    Error:') + ' Failed to run %s: %s', cmd, err.toString())
     task.done()
   })
 
