@@ -67,8 +67,10 @@ function runDependentsFirst (task, res, cb) {
 function flattenFiles (task) {
   task.options._after && task.options._after.forEach(function (name) {
     var t = map.get(name)
-    if (!t) return
-    if (t.options._watch) return task.watching = task.watching.concat(t.options._watch)
-
+    if (!t) return;
+    if (t.options._watch) {
+      task.watching = task.watching.concat(t.options._watch);
+      return task.watching;
+    }
   })
 }
