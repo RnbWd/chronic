@@ -135,13 +135,7 @@ function src(task, path) {
   }
 }
 
-function dest(task, path) {
-  if (path) {
-    return vinyl.dest(path);
-  } else if (task.path) {
-    return vinyl.dest(task.path);
-  }
-}
+const dest = (task, path) => vinyl.dest(path || task.path);
 
 function info(task, text) {
   var key = rightpad(task.key, map.len);

@@ -21,7 +21,7 @@ function exec(task, cmd) {
   byline(child.stderr).pipe(task.stderr);
 
   eos(child, function (err) {
-    if (err) return console.error(_chalk.red('    Error:') + ' Failed to run %s: %s', cmd, err.toString());
+    if (err) return console.error('' + _chalk.red('    Error:') + ' Failed to run ' + cmd + ': ' + err.toString());
     task.done();
   });
 
