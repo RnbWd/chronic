@@ -1,16 +1,8 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
+var Struct = require('new-struct');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _newStruct = require('new-struct');
-
-var _newStruct2 = _interopRequireDefault(_newStruct);
-
-var Options = _newStruct2['default']({
+var Options = Struct({
   New: New,
   after: after,
   source: source,
@@ -18,7 +10,7 @@ var Options = _newStruct2['default']({
   dest: dest
 });
 
-exports['default'] = Options;
+module.exports = Options;
 
 function New(obj) {
   return Options({
@@ -60,4 +52,3 @@ function dest(options, dest) {
   options._dest = dest;
   return options;
 }
-module.exports = exports['default'];

@@ -1,14 +1,14 @@
-import Struct from 'new-struct'
+const Struct = require('new-struct');
 
-let Options = Struct({
+const Options = Struct({
   New: New,
   after: after,
   source: source,
   watch: watch,
   dest: dest
-})
+});
 
-export default Options
+module.exports = Options;
 
 function New (obj) {
   return Options({
