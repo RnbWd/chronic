@@ -2,7 +2,7 @@
 
 *adjective*: from Greek *khronikos* ‘of time,’ from *khronos* ‘time.’
 
-[![NPM](https://nodei.co/npm/chronic.png)](https://nodei.co/npm/chronic/)
+[![NPM](https://nodei.co/npm/chronic.png?downloads=true)](https://nodei.co/npm/chronic/)
 
 [![Build Status](https://travis-ci.org/RnbWd/chronic.svg?branch=master)](https://travis-ci.org/RnbWd/chronic)
 [![Dependency Status](https://img.shields.io/david/rnbwd/chronic.svg?style=flat-square)](https://david-dm.org/rnbwd/chronic)
