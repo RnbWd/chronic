@@ -1,5 +1,7 @@
 # chronic
 
+[![Join the chat at https://gitter.im/RnbWd/chronic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/RnbWd/chronic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 *adjective*: from Greek *khronikos* ‘of time,’ from *khronos* ‘time.’
 
 [![NPM](https://nodei.co/npm/chronic.png?downloads=true)](https://nodei.co/npm/chronic/)
